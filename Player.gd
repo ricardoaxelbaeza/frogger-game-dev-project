@@ -26,15 +26,20 @@ onready var sprite : Sprite = get_node("Sprite") #references the sprite node
 func _physics_process(delta): #gets called 60 times a second 
 	
 	vel.x = 0 #initial vel = 0, so it doesnt move automatomatically in x dir
-	
+	vel.y = 0 #initial vel = 0, so it doesnt move automatomatically in y dir
 	#left and right movements
 	if Input.is_action_pressed("move_left"):
 		vel.x -= speed
 	if Input.is_action_pressed("move_right"):
 		vel.x += speed
+	if Input.is_action_pressed("move_up"):
+		vel.y -= speed
+	if Input.is_action_pressed("move_down"):
+		vel.y += speed
+		
 		
 	#starts applying velocity 
-	vel = move_and_slide(vel,Vector2.DOWN) 
+	vel = move_and_slide(vel.normalized() * speed) 
 	
 	
 	#flips the sprite depending on direction moving
