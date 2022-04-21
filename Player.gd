@@ -5,7 +5,6 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -43,3 +42,16 @@ func _physics_process(delta): #gets called 60 times a second
 		sprite.flip_h = true
 	elif vel.x > 0:
 		sprite.flip_h = false
+		
+func _on_CarCollider_area_entered(area):
+	queue_free()
+	# maybe show game over? then afer player presses up/down/left right:
+	get_tree().change_scene("res://MainMenu.tscn")
+	
+func _on_LogCollider_area_entered(area):
+	pass
+
+func _on_LogCollider_area_exited(area):
+	queue_free()
+	# maybe show game over? then afer player presses up/down/left right:
+	get_tree().change_scene("res://MainMenu.tscn")
