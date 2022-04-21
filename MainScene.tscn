@@ -41,3 +41,47 @@ tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -15728
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 460, 1506 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="BorderLeft" type="StaticBody2D" parent="."]
+position = Vector2( 460, 1506 )
+scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderLeft"]
+position = Vector2( 41.3333, 94.6667 )
+scale = Vector2( 1.05707, 1.14611 )
+polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
+[node name="BorderRight" type="StaticBody2D" parent="."]
+position = Vector2( 456, 1506 )
+scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderRight"]
+position = Vector2( 730.667, 98.6667 )
+scale = Vector2( 1.05707, 1.14611 )
+polygon = PoolVector2Array( -392.281, -700.343, -392.281, -892.297, -306.509, -892.297, -306.509, -47.4727, -392.281, -47.4727 )
+
+[node name="BorderBottom" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderBottom"]
+position = Vector2( -10.2075, -0.00292969 )
+scale = Vector2( 1.01474, 1 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="BorderTop" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BorderTop"]
+position = Vector2( -10, -1376.74 )
+scale = Vector2( 1.01474, 0.968811 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
