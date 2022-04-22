@@ -20,3 +20,5 @@ shape = SubResource( 1 )
 
 [node name="CollisionBoxPolygon" type="CollisionPolygon2D" parent="CollisionBox"]
 polygon = PoolVector2Array( 16, -16, -16, -16, -16, 16, 16, 16, 16, -16 )
+
+[connection signal="area_entered" from="CollisionBox" to="." method="_on_CollisionBox_area_entered"]
