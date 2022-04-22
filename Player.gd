@@ -5,6 +5,9 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
+var speed : int = 200
+var jump_force : int = 600
+var gravity : int = 800
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,10 +17,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-var speed : int = 200
-var jump_force : int = 600
-var gravity : int = 800
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -48,3 +47,20 @@ func _physics_process(delta): #gets called 60 times a second
 		sprite.flip_h = true
 	elif vel.x > 0:
 		sprite.flip_h = false
+		
+func _on_CarCollider_area_entered(area):
+	GlobalData.lives -= 1
+	if GlobalData.lives < 0:
+		queue_free()
+		# maybe show game over? then afer player presses up/down/left right:
+		get_tree().change_scene("res://MainMenu.tscn")
+	else:
+		get_tree().reload_current_scene()
+	
+func _on_LogCollider_area_entered(area):
+	pass
+
+func _on_LogCollider_area_exited(area):
+	queue_free()
+	# maybe show game over? then afer player presses up/down/left right:
+	get_tree().change_scene("res://MainMenu.tscn")
