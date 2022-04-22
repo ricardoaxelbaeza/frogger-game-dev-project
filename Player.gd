@@ -8,6 +8,7 @@ extends KinematicBody2D
 var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
+var onLog : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,9 +59,15 @@ func _on_CarCollider_area_entered(area):
 		get_tree().reload_current_scene()
 	
 func _on_LogCollider_area_entered(area):
-	pass
+	onLog = true
 
 func _on_LogCollider_area_exited(area):
-	queue_free()
-	# maybe show game over? then afer player presses up/down/left right:
-	get_tree().change_scene("res://MainMenu.tscn")
+	onLog = false
+	if not onLog and position.y < 350:
+		GlobalData.lives -= 1
+		if GlobalData.lives < 0:
+			queue_free()
+			# maybe show game over? then afer player presses up/down/left right:
+			get_tree().change_scene("res://MainMenu.tscn")
+		else:
+			get_tree().reload_current_scene()
