@@ -95,18 +95,18 @@ polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
 [node name="Row1" type="Node" parent="."]
 
-[node name="Car" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 88, 640 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Car2" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car2" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 224, 640 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Car3" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car3" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 424, 640 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Car4" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car4" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 560, 640 )
 scale = Vector2( 0.2, 0.2 )
