@@ -62,11 +62,12 @@ func _on_LogCollider_area_entered(area):
 	onLog = true
 
 func _on_LogCollider_area_exited(area):
+	onLog = false
 	if not onLog and position.y < 350:
 		GlobalData.lives -= 1
 		if GlobalData.lives < 0:
 			queue_free()
 			# maybe show game over? then afer player presses up/down/left right:
 			get_tree().change_scene("res://MainMenu.tscn")
-	else:
-		get_tree().reload_current_scene()
+		else:
+			get_tree().reload_current_scene()
