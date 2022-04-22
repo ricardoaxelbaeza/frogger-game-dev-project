@@ -101,74 +101,74 @@ polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
 [node name="Row1" type="Node" parent="."]
 
-[node name="Car" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 88, 640 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Car2" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car2" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 224, 640 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Car3" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car3" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 424, 640 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Car4" parent="Row1" instance=ExtResource( 3 )]
+[node name="Car4" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
 position = Vector2( 560, 640 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="Row2" type="Node" parent="."]
 
-[node name="Tank" parent="Row2" instance=ExtResource( 5 )]
+[node name="Tank" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
 position = Vector2( 160, 584 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 4 )
 
-[node name="Tank2" parent="Row2" instance=ExtResource( 5 )]
+[node name="Tank2" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
 position = Vector2( 496, 584 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 4 )
 
-[node name="Tank3" parent="Row2" instance=ExtResource( 5 )]
+[node name="Tank3" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
 position = Vector2( 336, 584 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 4 )
 
-[node name="Tank4" parent="Row2" instance=ExtResource( 5 )]
+[node name="Tank4" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
 position = Vector2( 16, 584 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 4 )
 
 [node name="Row3" type="Node" parent="."]
 
-[node name="PurpleCar" parent="Row3" instance=ExtResource( 6 )]
+[node name="PurpleCar" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
 position = Vector2( 560, 528 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 7 )
 
-[node name="PurpleCar2" parent="Row3" instance=ExtResource( 6 )]
+[node name="PurpleCar2" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
 position = Vector2( 424, 528 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 7 )
 
-[node name="PurpleCar3" parent="Row3" instance=ExtResource( 6 )]
+[node name="PurpleCar3" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
 position = Vector2( 224, 528 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 7 )
 
-[node name="PurpleCar4" parent="Row3" instance=ExtResource( 6 )]
+[node name="PurpleCar4" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
 position = Vector2( 88, 528 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 7 )
 
 [node name="Row4" type="Node" parent="."]
 
-[node name="Racecar" parent="Row4" instance=ExtResource( 9 )]
+[node name="Racecar" parent="Row4" groups=["Row4Cars"] instance=ExtResource( 9 )]
 position = Vector2( 344, 464 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 8 )
 
-[node name="Racecar2" parent="Row4" instance=ExtResource( 9 )]
+[node name="Racecar2" parent="Row4" groups=["Row4Cars"] instance=ExtResource( 9 )]
 position = Vector2( 272, 464 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 8 )

@@ -48,15 +48,6 @@ func _physics_process(delta): #gets called 60 times a second
 		sprite.flip_h = true
 	elif vel.x > 0:
 		sprite.flip_h = false
-		
-func _on_CarCollider_area_entered(area):
-	GlobalData.lives -= 1
-	if GlobalData.lives < 0:
-		queue_free()
-		# maybe show game over? then afer player presses up/down/left right:
-		get_tree().change_scene("res://MainMenu.tscn")
-	else:
-		get_tree().reload_current_scene()
 	
 func _on_LogCollider_area_entered(area):
 	onLog = true
@@ -65,6 +56,17 @@ func _on_LogCollider_area_exited(area):
 	onLog = false
 	if not onLog and position.y < 350:
 		GlobalData.lives -= 1
+		if GlobalData.lives < 0:
+			queue_free()
+			# maybe show game over? then afer player presses up/down/left right:
+			get_tree().change_scene("res://MainMenu.tscn")
+		else:
+			get_tree().reload_current_scene()
+
+func _on_CollisionBox_area_entered(area):
+	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars"):
+		GlobalData.lives -= 1
+		print(GlobalData.lives)
 		if GlobalData.lives < 0:
 			queue_free()
 			# maybe show game over? then afer player presses up/down/left right:
