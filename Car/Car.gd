@@ -1,12 +1,12 @@
 extends Area2D
 
-var car_speed = 250
+export var car_speed = 150
 
 func _process(delta):
 	position.x -= car_speed * delta
 	
-	if position.x > 1920:
-		position.x -= 2240
-	elif position.x < -320:
-		position.x += 2240
+	if position.x > 600:
+		position.x -= 700
+	elif position.x < -100:
+		position.x += 700
 		
