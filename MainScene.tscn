@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Car/PurpleCar.gd" type="Script" id=7]
 [ext_resource path="res://Car/Racecar.gd" type="Script" id=8]
 [ext_resource path="res://Car/Racecar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Lives.gd" type="Script" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -76,7 +77,7 @@ scale = Vector2( 0.459591, 0.307838 )
 polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
 
 [node name="BorderWall4" type="StaticBody2D" parent="Borders"]
-position = Vector2( 488, 712 )
+position = Vector2( 488, 714 )
 scale = Vector2( 0.75, 0.75 )
 __meta__ = {
 "_edit_group_": true
@@ -268,3 +269,14 @@ margin_right = 900.0
 margin_bottom = 188.0
 size_flags_stretch_ratio = 2.0
 text = "GOAL"
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Lives" type="RichTextLabel" parent="GUI"]
+margin_left = 224.0
+margin_top = 328.0
+margin_right = 320.0
+margin_bottom = 344.0
+text = "Lives Left: "
+fit_content_height = true
+script = ExtResource( 10 )
