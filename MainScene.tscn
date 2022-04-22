@@ -63,6 +63,54 @@ position = Vector2( 41.3333, 94.6667 )
 scale = Vector2( 1.05707, 1.14611 )
 polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
 
+[node name="BorderWall1" type="StaticBody2D" parent="Borders"]
+position = Vector2( 512, 1184 )
+scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderWall1"]
+position = Vector2( -127.711, -608.391 )
+scale = Vector2( 0.459591, 0.307838 )
+polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
+[node name="BorderWall4" type="StaticBody2D" parent="Borders"]
+position = Vector2( 488, 712 )
+scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderWall4"]
+position = Vector2( -127.711, -689.532 )
+scale = Vector2( 0.459591, 0.236799 )
+polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
+[node name="BorderWall2" type="StaticBody2D" parent="Borders"]
+position = Vector2( 344, 1048 )
+scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderWall2"]
+position = Vector2( -127.711, -713.276 )
+scale = Vector2( 0.459591, 0.197332 )
+polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
+[node name="BorderWall3" type="StaticBody2D" parent="Borders"]
+position = Vector2( 272, 904 )
+scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderWall3"]
+position = Vector2( -127.711, -713.276 )
+scale = Vector2( 0.459591, 0.197332 )
+polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
 [node name="BorderRight" type="StaticBody2D" parent="Borders"]
 position = Vector2( 222, 693 )
 scale = Vector2( 0.75, 0.75 )
@@ -172,3 +220,51 @@ script = ExtResource( 8 )
 position = Vector2( 272, 464 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 8 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2( 678, 1460 )
+scale = Vector2( 1.5, 1.5 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -1638403, 0, 262146, -1572867, 0, 262146, -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -1507331, 0, 262146, -1572850, 2, 6, -1572849, 2, 6, -1572848, 2, 6, -1572847, 2, 6, -1441795, 0, 262146, -1507310, 2, 6, -1507309, 2, 6, -1507308, 2, 6, -1376259, 0, 262146, -1310723, 0, 262146, -1114128, 2, 5, -1114127, 2, 6, -1114124, 0, 262146, -1114117, 2, 5, -1114116, 2, 6, -1179641, 2, 5, -1179640, 2, 6, -1048592, 1, 65541, -1048591, 1, 65541, -1048588, 0, 262146, -1048585, 1, 65541, -1048584, 1, 65541, -1048583, 1, 65541, -1048582, 1, 65541, -1048581, 1, 65541, -1048580, 1, 65541, -1048579, 1, 65541, -1048578, 1, 65541, -1048577, 1, 65541, -1114112, 1, 65541, -1114111, 1, 65541, -1114110, 1, 65541, -1114109, 1, 65541, -1114108, 1, 65541, -1114107, 1, 65541, -1114106, 1, 65541, -1114105, 1, 65541, -1114104, 1, 65541, -1114103, 1, 65541, -983052, 0, 262146, -983049, 1, 65541, -1048572, 1, 65541, -1048571, 1, 65541, -1048570, 1, 65541, -1048569, 1, 65541, -1048568, 1, 65541, -1048567, 1, 65541, -917516, 0, 262146, -851980, 0, 262146, -720905, 0, 65539, -655369, 0, 65539, -589833, 0, 65539, -524297, 0, 65539, -458761, 0, 65539, -327682, 0, 65539, -262146, 0, 65539, -196610, 0, 65539, -131074, 0, 65539, -65538, 0, 65539, -2, 0, 65539, 65534, 0, 65539, 131070, 0, 65539 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 310.0
+margin_top = 130.0
+margin_right = 396.0
+margin_bottom = 190.0
+size_flags_stretch_ratio = 2.0
+text = "GOAL"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 142.0
+margin_top = 130.0
+margin_right = 228.0
+margin_bottom = 190.0
+size_flags_stretch_ratio = 2.0
+text = "GOAL"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 482.0
+margin_top = 128.0
+margin_right = 568.0
+margin_bottom = 188.0
+size_flags_stretch_ratio = 2.0
+text = "GOAL"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+margin_left = 644.0
+margin_top = 128.0
+margin_right = 730.0
+margin_bottom = 188.0
+size_flags_stretch_ratio = 2.0
+text = "GOAL"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+margin_left = 814.0
+margin_top = 128.0
+margin_right = 900.0
+margin_bottom = 188.0
+size_flags_stretch_ratio = 2.0
+text = "GOAL"
