@@ -22,4 +22,16 @@ shape = SubResource( 1 )
 [node name="CollisionBoxPolygon" type="CollisionPolygon2D" parent="CollisionBox"]
 polygon = PoolVector2Array( 16, -16, -16, -16, -16, 16, 16, 16, 16, -16 )
 
+[node name="D" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 16 )
+
+[node name="U" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, -16 )
+
+[node name="L" type="RayCast2D" parent="."]
+cast_to = Vector2( -16, 0 )
+
+[node name="R" type="RayCast2D" parent="."]
+cast_to = Vector2( 16, 0 )
+
 [connection signal="area_entered" from="CollisionBox" to="." method="_on_CollisionBox_area_entered"]
