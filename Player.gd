@@ -46,9 +46,20 @@ func _physics_process(delta): #gets called 60 times a second
 	#flips the sprite depending on direction moving
 	if vel.x < 0:
 		sprite.flip_h = true
+		
+			
 	elif vel.x > 0:
 		sprite.flip_h = false
+		
+	#var y = position.y
+	#print (y)
+	#if y == 176.382812:
+		#print("hello")
+	#else:
+		#print ("bye")
+		
 	
+	#print(position.y)
 func _on_LogCollider_area_entered(area):
 	onLog = true
 
@@ -63,7 +74,7 @@ func _on_LogCollider_area_exited(area):
 		else:
 			get_tree().reload_current_scene()
 
-func _on_CollisionBox_area_entered(area):
+func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars"):
 		GlobalData.lives -= 1
 		print(GlobalData.lives)
@@ -73,3 +84,13 @@ func _on_CollisionBox_area_entered(area):
 			get_tree().change_scene("res://MainMenu.tscn")
 		else:
 			get_tree().reload_current_scene()
+			
+	if area.is_in_group("tile1"):
+		print ("hi")
+			
+
+	
+
+	
+			
+
