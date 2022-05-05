@@ -104,7 +104,7 @@ func _process(delta):
 		return
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
-	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars"):
+	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
 		#print(GlobalData.lives)
 		if GlobalData.lives < 1:
@@ -114,10 +114,12 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			
 		else:
 			get_tree().reload_current_scene()
-	
-	
+
 			
-		
+	if area.is_in_group("lilypad1"):
+		print("at goal 1")
+		get_tree().reload_current_scene()
+
 
 func _on_FirstGoal_area_entered(area):
 	if area.is_in_group("endgoal1"): 
