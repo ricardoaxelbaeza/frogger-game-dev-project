@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Walk_Up_5.png-b96ececa5ceb86e5ee98319beb216731.stex"
+path="res://.import/Walk_Up_5.png-927d82791712a0fca3a6ac4bc269593c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Blade Frogger Assets/Player/Walk_Up_5.png"
-dest_files=[ "res://.import/Walk_Up_5.png-b96ececa5ceb86e5ee98319beb216731.stex" ]
+source_file="res://Car/Blade Frogger Assets/Player/Walk_Up_5.png"
+dest_files=[ "res://.import/Walk_Up_5.png-927d82791712a0fca3a6ac4bc269593c.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

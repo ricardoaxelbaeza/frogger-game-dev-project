@@ -6,6 +6,7 @@ extends Control
 # var b = "text"
 #export (PackedScene) var clone
 export (PackedScene) var variant
+export (PackedScene) var clone
 var starting_lives = 5
 
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +19,7 @@ func _ready():
 
 func _on_StartVariant_pressed():
 	get_tree().change_scene_to(variant)
+
+
+func _on_StartClone_pressed():
+	get_tree().change_scene_to(clone)
