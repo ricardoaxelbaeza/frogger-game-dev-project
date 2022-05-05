@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Grey1.png-677fc1d60688966ced45d2ed66fc8ae8.stex"
+path="res://.import/Grey1.png-e7bcbcd43871381909c94cdfe3d11b0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Blade Frogger Assets/Car/Grey1.png"
-dest_files=[ "res://.import/Grey1.png-677fc1d60688966ced45d2ed66fc8ae8.stex" ]
+source_file="res://Car/Blade Frogger Assets/Car/Grey1.png"
+dest_files=[ "res://.import/Grey1.png-e7bcbcd43871381909c94cdfe3d11b0f.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

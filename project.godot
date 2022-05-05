@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/InvitationItem.gd"
 }, {
-"base": "Reference",
+"base": "KinematicBody2D",
 "class": "Obstacle",
 "language": "GDScript",
 "path": "res://Obstacles/Obstacle.gd"
@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Frogger-Variant"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Interior-Walls-Beige.png-29de91137270cc6af89fcc4a91c5ef0f.stex"
+path="res://.import/Interior-Walls-Beige.png-cd511c71d2ada882a2fb24fbef891e77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Blade Frogger Assets/Level/Interior-Walls-Beige.png"
-dest_files=[ "res://.import/Interior-Walls-Beige.png-29de91137270cc6af89fcc4a91c5ef0f.stex" ]
+source_file="res://Car/Blade Frogger Assets/Level/Interior-Walls-Beige.png"
+dest_files=[ "res://.import/Interior-Walls-Beige.png-cd511c71d2ada882a2fb24fbef891e77.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false
