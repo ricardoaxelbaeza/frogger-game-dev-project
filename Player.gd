@@ -120,6 +120,6 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		
 
 func _on_FirstGoal_area_entered(area):
-	if area.is_in_group("tile1"): 
+	if area.is_in_group("endgoal1"): 
 		print("hi")
 
