@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Lives.gd" type="Script" id=10]
 [ext_resource path="res://Car/Truck.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Car/Truck.gd" type="Script" id=12]
+[ext_resource path="res://Art/Lilypad.png" type="Texture" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -36,6 +37,9 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 12 )
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 41.5, 23 )
 
@@ -54,6 +58,23 @@ tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -15728
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 460, 1506 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="Lilypads" type="Node" parent="."]
+
+[node name="Lilypad1" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+position = Vector2( 0, 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad1"]
+position = Vector2( 76, 30 )
+scale = Vector2( 0.0440031, 0.0340909 )
+texture = ExtResource( 13 )
+
+[node name="Lilypad1" type="CollisionShape2D" parent="Lilypads/Lilypad1"]
+position = Vector2( 76, 28 )
+shape = SubResource( 3 )
 
 [node name="Borders" type="Node" parent="."]
 
@@ -229,17 +250,17 @@ script = ExtResource( 8 )
 
 [node name="Row5" type="Node" parent="."]
 
-[node name="Truck" parent="Row5" instance=ExtResource( 11 )]
+[node name="Truck" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
 position = Vector2( 96, 400 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
 
-[node name="Truck2" parent="Row5" instance=ExtResource( 11 )]
+[node name="Truck2" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
 position = Vector2( 248, 400 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
 
-[node name="Truck3" parent="Row5" instance=ExtResource( 11 )]
+[node name="Truck3" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
 position = Vector2( 400, 400 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
@@ -255,40 +276,40 @@ tile_data = PoolIntArray( -1638403, 0, 262146, -1572867, 0, 262146, -1638389, 2,
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 310.0
 margin_top = 130.0
-margin_right = 396.0
-margin_bottom = 190.0
+margin_right = 364.0
+margin_bottom = 142.0
 size_flags_stretch_ratio = 2.0
 text = "GOAL"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 margin_left = 142.0
 margin_top = 130.0
-margin_right = 228.0
-margin_bottom = 190.0
+margin_right = 198.0
+margin_bottom = 148.0
 size_flags_stretch_ratio = 2.0
 text = "GOAL"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 margin_left = 482.0
 margin_top = 128.0
-margin_right = 568.0
-margin_bottom = 188.0
+margin_right = 522.0
+margin_bottom = 144.0
 size_flags_stretch_ratio = 2.0
 text = "GOAL"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
 margin_left = 644.0
 margin_top = 128.0
-margin_right = 730.0
-margin_bottom = 188.0
+margin_right = 694.0
+margin_bottom = 144.0
 size_flags_stretch_ratio = 2.0
 text = "GOAL"
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
 margin_left = 814.0
 margin_top = 128.0
-margin_right = 900.0
-margin_bottom = 188.0
+margin_right = 870.0
+margin_bottom = 146.0
 size_flags_stretch_ratio = 2.0
 text = "GOAL"
 
@@ -303,8 +324,12 @@ text = "Lives Left: "
 fit_content_height = true
 script = ExtResource( 10 )
 
-[node name="First Section" type="Area2D" parent="." groups=["tile1"]]
+[node name="FirstGoal" type="Area2D" parent="." groups=["tile1"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="First Section"]
+[node name="Goal" type="CollisionShape2D" parent="FirstGoal" groups=["endgoal1"]]
 position = Vector2( 164, 178 )
 shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="FirstGoal" to="Player" method="_on_FirstGoal_area_entered"]
