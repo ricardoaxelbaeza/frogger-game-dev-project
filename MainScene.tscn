@@ -250,17 +250,17 @@ script = ExtResource( 8 )
 
 [node name="Row5" type="Node" parent="."]
 
-[node name="Truck" parent="Row5" instance=ExtResource( 11 )]
+[node name="Truck" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
 position = Vector2( 96, 400 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
 
-[node name="Truck2" parent="Row5" instance=ExtResource( 11 )]
+[node name="Truck2" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
 position = Vector2( 248, 400 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
 
-[node name="Truck3" parent="Row5" instance=ExtResource( 11 )]
+[node name="Truck3" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
 position = Vector2( 400, 400 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
