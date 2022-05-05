@@ -61,7 +61,7 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="Lilypads" type="Node" parent="."]
 
-[node name="Lilypad1" type="Area2D" parent="Lilypads"]
+[node name="Lilypad1" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
 position = Vector2( 0, 2 )
 __meta__ = {
 "_edit_group_": true

@@ -88,6 +88,9 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("tile1"):
 		print ("hi")
 			
+	if area.is_in_group("lilypad1"):
+		print("at goal 1")
+		get_tree().reload_current_scene()
 
 	
 
