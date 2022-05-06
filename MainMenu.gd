@@ -8,10 +8,12 @@ extends Control
 export (PackedScene) var variant
 export (PackedScene) var clone
 var starting_lives = 5
+var starting_score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalData.lives = starting_lives
+	GlobalData.score = starting_score
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

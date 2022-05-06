@@ -14,21 +14,22 @@ var tile_size = 20
 var turn = false
 var move_speed = 4
 
-var timer = 90000000
-
 var l = 0
 var r = 0
 var u = 0
 var d = 0
 
+var score_timer
+var start_timer
+var second_timer
+var start_position
+
 # Called when the node enters the scene tree for the first time.
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _ready():
+	score_timer = get_node("../ScoreTimer")
+	start_timer = get_node("../StartTimer")
+	second_timer = get_node("../SecondTimer")
+	start_timer.start()
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -36,7 +37,7 @@ var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving pe
 onready var sprite : Sprite = get_node("Sprite") #references the sprite node
 
 	
-func _physics_process(delta): #gets called 60 times a second 
+func _process(delta): #gets called 60 times a second
 	movement()
 	
 func movement():
@@ -76,6 +77,7 @@ func move_input():
 	if Input.is_action_pressed("move_up") && $U.is_colliding() == false && turn == false:
 		u = tile_size
 		turn = true
+		GlobalData.score += 10
 	#down movement
 	if Input.is_action_pressed("move_down") && $D.is_colliding() == false && turn == false:
 		d = tile_size
@@ -95,33 +97,38 @@ func _on_LogCollider_area_exited(area):
 			
 		else:
 			get_tree().reload_current_scene()
-			
-			
-func _process(delta):
-	if timer > 0:
-		timer -= delta
-	else: 
-		return
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
-		#print(GlobalData.lives)
 		if GlobalData.lives < 1:
-			queue_free()
-			# maybe show game over? then afer player presses up/down/left right:
-			get_tree().change_scene("res://Game Over.tscn")
-			
+			game_over()
 		else:
-			get_tree().reload_current_scene()
-
+			position = $"../StartPosition".position
 			
 	if area.is_in_group("lilypad1"):
 		print("at goal 1")
 		get_tree().reload_current_scene()
 
+func game_over():
+	score_timer.stop()
+	queue_free()
+	get_tree().change_scene("res://Game Over.tscn")
 
 func _on_FirstGoal_area_entered(area):
+	# +10 points per 0.5 second left on the timer
+	GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
+	# +50 points for finishing the level
+	GlobalData.score += 50
 	if area.is_in_group("endgoal1"): 
 		print("hi")
 
+func _on_StartTimer_timeout():
+	score_timer.start(30)
+	second_timer.start()
+
+func _on_SecondTimer_timeout():
+	GlobalData.time = round(score_timer.get_time_left())
+
+func _on_ScoreTimer_timeout():
+	game_over()
