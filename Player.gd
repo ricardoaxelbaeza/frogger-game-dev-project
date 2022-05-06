@@ -129,3 +129,6 @@ func _on_StartTimer_timeout():
 
 func _on_SecondTimer_timeout():
 	GlobalData.time = round(score_timer.get_time_left())
+
+func _on_ScoreTimer_timeout():
+	game_over()

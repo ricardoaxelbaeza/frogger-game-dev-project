@@ -361,5 +361,6 @@ position = Vector2( 460, 1512 )
 [node name="SecondTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="FirstGoal" to="Player" method="_on_FirstGoal_area_entered"]
+[connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
