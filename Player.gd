@@ -106,8 +106,10 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		else:
 			position = $"../StartPosition".position
 			
+	# Player reaches goal areas:
 	if area.is_in_group("lilypad1"):
 		print("at goal 1")
+		$"../Lilypads/Lilypad1/Success1".visible = true
 		get_tree().reload_current_scene()
 
 func game_over():
@@ -120,7 +122,7 @@ func _on_FirstGoal_area_entered(area):
 	GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
 	# +50 points for finishing the level
 	GlobalData.score += 50
-	if area.is_in_group("endgoal1"): 
+	if area.is_in_group("lilypad1"): 
 		print("hi")
 
 func _on_StartTimer_timeout():
