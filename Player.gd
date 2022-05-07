@@ -111,47 +111,41 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 1")
-		$"../Lilypads/Lilypad1/Success1".visible = true
+		# $"../Lilypads/Lilypad1/Success1".visible = true
 		get_tree().reload_current_scene()
 		
 	if area.is_in_group("lilypad2"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 2")
-		$"../Lilypads/Lilypad2/Success1".visible = true
+		#$ "../Lilypads/Lilypad2/Success1".visible = true
 		get_tree().reload_current_scene()
 		
 	if area.is_in_group("lilypad3"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 3")
-		$"../Lilypads/Lilypad3/Success1".visible = true
+		# $"../Lilypads/Lilypad3/Success1".visible = true
 		get_tree().reload_current_scene()
 		
 	if area.is_in_group("lilypad4"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 4")
-		$"../Lilypads/Lilypad4/Success1".visible = true
+		# $"../Lilypads/Lilypad4/Success1".visible = true
 		get_tree().reload_current_scene()
 		
 	if area.is_in_group("lilypad5"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 5")
-		$"../Lilypads/Lilypad5/Success1".visible = true
+		# $"../Lilypads/Lilypad5/Success1".visible = true
 		get_tree().reload_current_scene()
 
 func game_over():
 	score_timer.stop()
 	queue_free()
 	get_tree().change_scene("res://Game Over.tscn")
-
-#func _on_FirstGoal_area_entered(area):
-#	# +10 points per 0.5 second left on the timer
-	# GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
-#	if area.is_in_group("lilypad1"): 
-#		print("hi")
 
 func _on_StartTimer_timeout():
 	score_timer.start(30)
