@@ -95,7 +95,7 @@ position = Vector2( 161, 28 )
 scale = Vector2( 0.0420561, 0.0422078 )
 texture = ExtResource( 16 )
 
-[node name="Lilypad3" type="Area2D" parent="Lilypads" groups=["LilyPad3"]]
+[node name="Lilypad3" type="Area2D" parent="Lilypads" groups=["Lilypad3"]]
 position = Vector2( -1, 2 )
 
 [node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad3"]

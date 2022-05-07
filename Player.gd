@@ -30,6 +30,11 @@ func _ready():
 	start_timer = get_node("../StartTimer")
 	second_timer = get_node("../SecondTimer")
 	start_timer.start()
+	$"../Lilypads/Lilypad1/Success1".visible = GlobalData.frog1
+	$"../Lilypads/Lilypad2/Success1".visible = GlobalData.frog2
+	$"../Lilypads/Lilypad3/Success1".visible = GlobalData.frog3
+	$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
+	$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -108,39 +113,79 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
-		# +50 points for finishing the level
+		# +50 points for getting a frog to the lilypad
 		GlobalData.score += 50
+		GlobalData.frog1 = true
 		print("at goal 1")
 		# $"../Lilypads/Lilypad1/Success1".visible = true
-		get_tree().reload_current_scene()
+		if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
+			# +1000 points for getting all frogs to end
+			GlobalData.score += 1000
+			# +10 points for each unused half second left on the timer
+			GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
+			# win game - display scene for that
+		else:
+			get_tree().reload_current_scene()
 		
 	if area.is_in_group("Lilypad2"):
-		# +50 points for finishing the level
+		# +50 points for getting a frog to the lilypad
 		GlobalData.score += 50
+		GlobalData.frog2 = true
 		print("at goal 2")
 		#$ "../Lilypads/Lilypad2/Success1".visible = true
-		get_tree().reload_current_scene()
+		if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
+			# +1000 points for getting all frogs to end
+			GlobalData.score += 1000
+			# +10 points for each unused half second left on the timer
+			GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
+			# win game - display scene for that
+		else:
+			get_tree().reload_current_scene()
 		
 	if area.is_in_group("Lilypad3"):
-		# +50 points for finishing the level
+		# +50 points for getting a frog to the lilypad
 		GlobalData.score += 50
+		GlobalData.frog3 = true
 		print("at goal 3")
 		# $"../Lilypads/Lilypad3/Success1".visible = true
-		get_tree().reload_current_scene()
+		if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
+			# +1000 points for getting all frogs to end
+			GlobalData.score += 1000
+			# +10 points for each unused half second left on the timer
+			GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
+			# win game - display scene for that
+		else:
+			get_tree().reload_current_scene()
 		
 	if area.is_in_group("Lilypad4"):
-		# +50 points for finishing the level
+		# +50 points for getting a frog to the lilypad
 		GlobalData.score += 50
+		GlobalData.frog4 = true
 		print("at goal 4")
 		# $"../Lilypads/Lilypad4/Success1".visible = true
-		get_tree().reload_current_scene()
+		if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
+			# +1000 points for getting all frogs to end
+			GlobalData.score += 1000
+			# +10 points for each unused half second left on the timer
+			GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
+			# win game - display scene for that
+		else:
+			get_tree().reload_current_scene()
 		
 	if area.is_in_group("Lilypad5"):
-		# +50 points for finishing the level
+		# +50 points for getting a frog to the lilypad
 		GlobalData.score += 50
+		GlobalData.frog5 = true
 		print("at goal 5")
 		# $"../Lilypads/Lilypad5/Success1".visible = true
-		get_tree().reload_current_scene()
+		if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
+			# +1000 points for getting all frogs to end
+			GlobalData.score += 1000
+			# +10 points for each unused half second left on the timer
+			GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
+			# win game - display scene for that
+		else:
+			get_tree().reload_current_scene()
 
 func game_over():
 	score_timer.stop()
