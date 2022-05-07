@@ -61,7 +61,7 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="Lilypads" type="Node" parent="."]
 
-[node name="Lilypad1" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+[node name="Lilypad1" type="Area2D" parent="Lilypads" groups=["Lilypad1"]]
 position = Vector2( -1, 2 )
 
 [node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad1"]
@@ -78,7 +78,7 @@ position = Vector2( 77, 28 )
 scale = Vector2( 0.0420561, 0.0422078 )
 texture = ExtResource( 16 )
 
-[node name="Lilypad2" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+[node name="Lilypad2" type="Area2D" parent="Lilypads" groups=["Lilypad2"]]
 position = Vector2( -1, 2 )
 
 [node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad2"]
@@ -95,7 +95,7 @@ position = Vector2( 161, 28 )
 scale = Vector2( 0.0420561, 0.0422078 )
 texture = ExtResource( 16 )
 
-[node name="Lilypad3" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+[node name="Lilypad3" type="Area2D" parent="Lilypads" groups=["LilyPad3"]]
 position = Vector2( -1, 2 )
 
 [node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad3"]
@@ -112,7 +112,7 @@ position = Vector2( 245, 28 )
 scale = Vector2( 0.0420561, 0.0422078 )
 texture = ExtResource( 16 )
 
-[node name="Lilypad4" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+[node name="Lilypad4" type="Area2D" parent="Lilypads" groups=["Lilypad4"]]
 position = Vector2( -1, 2 )
 
 [node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad4"]
@@ -129,7 +129,7 @@ position = Vector2( 329, 28 )
 scale = Vector2( 0.0420561, 0.0422078 )
 texture = ExtResource( 16 )
 
-[node name="Lilypad5" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+[node name="Lilypad5" type="Area2D" parent="Lilypads" groups=["Lilypad5"]]
 position = Vector2( -1, 2 )
 
 [node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad5"]

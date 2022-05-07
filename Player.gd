@@ -107,35 +107,35 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			position = $"../StartPosition".position
 			
 	# Player reaches goal areas:
-	if area.is_in_group("lilypad1"):
+	if area.is_in_group("Lilypad1"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 1")
 		# $"../Lilypads/Lilypad1/Success1".visible = true
 		get_tree().reload_current_scene()
 		
-	if area.is_in_group("lilypad2"):
+	if area.is_in_group("Lilypad2"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 2")
 		#$ "../Lilypads/Lilypad2/Success1".visible = true
 		get_tree().reload_current_scene()
 		
-	if area.is_in_group("lilypad3"):
+	if area.is_in_group("Lilypad3"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 3")
 		# $"../Lilypads/Lilypad3/Success1".visible = true
 		get_tree().reload_current_scene()
 		
-	if area.is_in_group("lilypad4"):
+	if area.is_in_group("Lilypad4"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 4")
 		# $"../Lilypads/Lilypad4/Success1".visible = true
 		get_tree().reload_current_scene()
 		
-	if area.is_in_group("lilypad5"):
+	if area.is_in_group("Lilypad5"):
 		# +50 points for finishing the level
 		GlobalData.score += 50
 		print("at goal 5")
