@@ -81,6 +81,74 @@ position = Vector2( 77, 28 )
 scale = Vector2( 0.0420561, 0.0422078 )
 texture = ExtResource( 16 )
 
+[node name="Lilypad2" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+position = Vector2( -1, 2 )
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad2"]
+position = Vector2( 161, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad2"]
+position = Vector2( 161, 28 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad2"]
+position = Vector2( 161, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad3" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+position = Vector2( -1, 2 )
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad3"]
+position = Vector2( 245, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad3"]
+position = Vector2( 245, 28 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad3"]
+position = Vector2( 245, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad4" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+position = Vector2( -1, 2 )
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad4"]
+position = Vector2( 329, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad4"]
+position = Vector2( 329, 28 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad4"]
+position = Vector2( 329, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad5" type="Area2D" parent="Lilypads" groups=["lilypad1"]]
+position = Vector2( -1, 2 )
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad5"]
+position = Vector2( 413, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad5"]
+position = Vector2( 413, 28 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad5"]
+position = Vector2( 413, 28 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
 [node name="Borders" type="Node" parent="."]
 
 [node name="BorderLeft" type="StaticBody2D" parent="Borders"]
