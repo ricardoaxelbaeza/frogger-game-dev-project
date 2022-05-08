@@ -7,6 +7,7 @@ extends Node2D
 var lives = 5
 var score = 0
 var time = 30
+
 var frog1 = false
 var frog2 = false
 var frog3 = false

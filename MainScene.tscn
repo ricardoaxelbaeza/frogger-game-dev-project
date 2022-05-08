@@ -9,12 +9,12 @@
 [ext_resource path="res://Car/PurpleCar.gd" type="Script" id=7]
 [ext_resource path="res://Car/Racecar.gd" type="Script" id=8]
 [ext_resource path="res://Car/Racecar.tscn" type="PackedScene" id=9]
-[ext_resource path="res://LivesLabel.gd" type="Script" id=10]
+[ext_resource path="res://HUD/LivesLabel.gd" type="Script" id=10]
 [ext_resource path="res://Car/Truck.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Car/Truck.gd" type="Script" id=12]
 [ext_resource path="res://Art/Lilypad.png" type="Texture" id=13]
-[ext_resource path="res://ScoreLabel.gd" type="Script" id=14]
-[ext_resource path="res://TimerLabel.gd" type="Script" id=15]
+[ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
+[ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
 [ext_resource path="res://Art/FrogOnPad.png" type="Texture" id=16]
 
 [sub_resource type="TileSet" id=1]
@@ -386,9 +386,9 @@ text = "GOAL"
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LivesLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 216.0
+margin_left = 207.0
 margin_top = 328.0
-margin_right = 312.0
+margin_right = 303.0
 margin_bottom = 344.0
 text = "LIVES LEFT: "
 fit_content_height = true
@@ -414,13 +414,12 @@ script = ExtResource( 15 )
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
+
+[node name="SecondTimer" type="Timer" parent="."]
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 460, 1512 )
-
-[node name="SecondTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
