@@ -4,7 +4,10 @@ var log_speed = 150
 
 func _process(delta):
 	position.x -= log_speed * delta
-
-
-func _on_log_body_entered(body):
-	print("collision!")
+	if position.x < -950:
+		print("positionn is ff")
+		position.x += 900
+	
+	
+	
+		
