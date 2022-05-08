@@ -10,7 +10,8 @@ var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = true
 
-export var tile_size = 20
+
+var tile_size = 32 # change by multiples of 4
 var turn = false
 var move_speed = 4
 

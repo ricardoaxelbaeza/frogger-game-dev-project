@@ -16,7 +16,9 @@
 [ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
 [ext_resource path="res://Art/FrogOnPad.png" type="Texture" id=16]
-[ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=17]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=18]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -431,6 +433,9 @@ one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 460, 1512 )
+
+[node name="Key" parent="." instance=ExtResource( 17 )]
+position = Vector2( 802, 1328 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]

@@ -14,6 +14,8 @@ var frog3 = false
 var frog4 = false
 var frog5 = false
 
+var key_found = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
