@@ -294,13 +294,40 @@ polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 [node name="BorderTop" type="StaticBody2D" parent="Borders"]
 position = Vector2( -5, -61 )
 scale = Vector2( 0.5, 0.5 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderTop"]
-position = Vector2( -10, -1376.74 )
-scale = Vector2( 1.01474, 0.968811 )
+[node name="Rectangle" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( -10, -1488.85 )
+scale = Vector2( 1.01474, 1.04027 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Bump1" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 34.5672, -3561.51 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Bump2" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 202, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Bump3" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 370, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Bump4" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 538, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Bump5" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 708, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Bump6" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 873.425, -3562 )
+scale = Vector2( 0.0657751, 2.39584 )
 polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
 [node name="Row1" type="Node" parent="."]
