@@ -178,3 +178,10 @@ func _on_SecondTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	game_over()
+
+func _pause():
+	if Input.is_action_pressed("ui_cancel"):
+		#bring up menu over screen; pause game; allow exiting of pause menu
+		# exit to main menu if player chooses
+		pass
+	pass
