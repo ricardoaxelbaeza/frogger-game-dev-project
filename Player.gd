@@ -10,6 +10,7 @@ var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = true
 
+
 var tile_size = 32 # change by multiples of 4
 var turn = false
 var move_speed = 4
@@ -177,3 +178,10 @@ func _on_SecondTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	game_over()
+
+func _pause():
+	if Input.is_action_pressed("ui_cancel"):
+		#bring up menu over screen; pause game; allow exiting of pause menu
+		# exit to main menu if player chooses
+		pass
+	pass
