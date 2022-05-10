@@ -48,11 +48,11 @@ onready var sprite : Sprite = get_node("Sprite") #references the sprite node
 func _process(delta): #gets called 60 times a second
 	if not pause:
 		movement()
-	$"../Lilypads/Lilypad1/Success1".visible = GlobalData.frog1
-	$"../Lilypads/Lilypad2/Success1".visible = GlobalData.frog2
-	$"../Lilypads/Lilypad3/Success1".visible = GlobalData.frog3
-	$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
-	$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
+	#$"../Lilypads/Lilypad1/Success1".visible = GlobalData.frog1
+	#$"../Lilypads/Lilypad2/Success1".visible = GlobalData.frog2
+	#$"../Lilypads/Lilypad3/Success1".visible = GlobalData.frog3
+	#$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
+	#$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
 	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
