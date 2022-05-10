@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Art/Tilemaps/RockyShoreline.png" type="Texture" id=13]
 [ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
+[ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
@@ -201,6 +202,14 @@ __meta__ = {
 position = Vector2( -10, -1812 )
 scale = Vector2( 1.01474, 1.25 )
 polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Branch1" parent="Walls" instance=ExtResource( 16 )]
+
+[node name="Branch2" parent="Walls" instance=ExtResource( 16 )]
+position = Vector2( 335, 5 )
+rotation = -3.14159
 
 [node name="Row1" type="Node" parent="."]
 
