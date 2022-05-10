@@ -18,6 +18,7 @@
 [ext_resource path="res://Art/FrogOnPad.png" type="Texture" id=16]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
