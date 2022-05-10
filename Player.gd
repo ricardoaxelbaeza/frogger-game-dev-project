@@ -167,6 +167,7 @@ func game_over():
 	score_timer.stop()
 	queue_free()
 	get_tree().change_scene("res://Game Over.tscn")
+	GlobalData.key_found = false
 
 func _on_StartTimer_timeout():
 	pause = false

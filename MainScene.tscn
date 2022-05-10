@@ -43,7 +43,10 @@
 0/shapes = [  ]
 0/z_index = 0
 1/name = "Green Buffer.png 1"
+
+
 1/texture = ExtResource( 19 )
+
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 32, 32, 32 )
@@ -596,8 +599,8 @@ position = Vector2( -755, -8 )
 [node name="Key" parent="." instance=ExtResource( 17 )]
 position = Vector2( 806, 1332 )
 
-[node name="Door" parent="." instance=ExtResource( 18 )]
-position = Vector2( 136, 1464 )
+[node name="Door" parent="." instance=ExtResource( 20 )]
+position = Vector2( 314, 1470 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
