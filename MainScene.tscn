@@ -19,7 +19,6 @@
 [ext_resource path="res://Key.tscn" type="PackedScene" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -281,6 +280,7 @@ polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -8
 position = Vector2( -325.333, -404 )
 scale = Vector2( 0.446667, 4.48 )
 z_index = 1
+texture = ExtResource( 19 )
 
 [node name="BorderRight" type="StaticBody2D" parent="Borders"]
 position = Vector2( 225, 639 )
@@ -299,6 +299,7 @@ polygon = PoolVector2Array( -392.281, -700.343, -392.281, -892.297, -306.509, -8
 position = Vector2( 361.333, -404.667 )
 scale = Vector2( 0.446667, 4.47333 )
 z_index = 1
+texture = ExtResource( 19 )
 
 [node name="BorderBottom" type="StaticBody2D" parent="Borders"]
 position = Vector2( -5, -116 )
