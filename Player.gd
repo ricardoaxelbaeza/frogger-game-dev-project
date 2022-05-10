@@ -101,7 +101,7 @@ func _on_LogCollider_area_entered(area):
 
 func _on_LogCollider_area_exited(area):
 	onLog = false
-	if not onLog and position.y < 350:
+	if not onLog and position.y > 350:
 		GlobalData.lives -= 1
 		if GlobalData.lives < 0:
 			queue_free()
@@ -121,7 +121,8 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause = true
 			score_timer.paused = true
 			_ready()
-			
+	if area.is_in_group("log") or area.is_in_group("Node") or area.is_in_group("Node2"):
+		print("e")
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -147,7 +148,7 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		GlobalData.frog5 = true
 		print("at goal 5")
 		handle_lilypad()
-
+	
 func handle_lilypad():
 	score_timer.paused = true
 	# +50 points for getting a frog to the lilypad
@@ -177,3 +178,6 @@ func _on_SecondTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	game_over()
+func drowing():
+	if position.y > 400:
+		print("drownig")

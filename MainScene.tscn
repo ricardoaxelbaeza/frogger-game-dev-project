@@ -431,7 +431,7 @@ position = Vector2( -745, 44 )
 position = Vector2( -387, 43 )
 
 [node name="log3" parent="log" instance=ExtResource( 18 )]
-position = Vector2( -561, 43 )
+position = Vector2( -564, 41 )
 
 [node name="Node" type="Node" parent="."]
 
