@@ -266,9 +266,16 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderLeft"]
-position = Vector2( 41.3333, 91.0599 )
-scale = Vector2( 1.05707, 1.06263 )
+position = Vector2( 41.3333, 90.3457 )
+scale = Vector2( 1.05707, 1.05967 )
+z_index = 2
 polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
+[node name="GreenBorder" type="Sprite" parent="Borders/BorderLeft"]
+position = Vector2( -325.333, -404 )
+scale = Vector2( 0.446667, 4.48 )
+z_index = 1
+texture = ExtResource( 18 )
 
 [node name="BorderRight" type="StaticBody2D" parent="Borders"]
 position = Vector2( 225, 639 )
@@ -280,7 +287,14 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderRight"]
 position = Vector2( 730.667, 93.5891 )
 scale = Vector2( 1.05707, 1.06038 )
+z_index = 2
 polygon = PoolVector2Array( -392.281, -700.343, -392.281, -892.297, -306.509, -892.297, -306.509, -47.4727, -392.281, -47.4727 )
+
+[node name="GreenBorder" type="Sprite" parent="Borders/BorderRight"]
+position = Vector2( 361.333, -404.667 )
+scale = Vector2( 0.446667, 4.47333 )
+z_index = 1
+texture = ExtResource( 18 )
 
 [node name="BorderBottom" type="StaticBody2D" parent="Borders"]
 position = Vector2( -5, -116 )
