@@ -424,14 +424,14 @@ position = Vector2( 460, 1512 )
 
 [node name="log" type="Node" parent="."]
 
-[node name="log" parent="log" instance=ExtResource( 18 )]
-position = Vector2( -745, 44 )
+[node name="log2" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 539, 323 )
 
-[node name="log2" parent="log" instance=ExtResource( 18 )]
-position = Vector2( -387, 43 )
+[node name="log3" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 789, 320 )
 
-[node name="log3" parent="log" instance=ExtResource( 18 )]
-position = Vector2( -564, 41 )
+[node name="log" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 1022, 321 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -480,3 +480,5 @@ position = Vector2( -755, -8 )
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
+[connection signal="area_exited" from="log/log2" to="Player" method="_on_log2_area_exited"]
+[connection signal="area_entered" from="log/log" to="Player" method="_on_log_area_entered"]

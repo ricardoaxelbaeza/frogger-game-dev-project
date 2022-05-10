@@ -25,6 +25,10 @@ var second_timer
 var start_position
 var pause = true
 
+var log_node = null
+var log_position = Vector2.ZERO
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_timer = get_node("../ScoreTimer")
@@ -95,6 +99,8 @@ func move_input():
 	if Input.is_action_pressed("move_down") && $D.is_colliding() == false && turn == false:
 		d = tile_size
 		turn = true
+	if position.y < 500:
+		print(5)
 	
 func _on_LogCollider_area_entered(area):
 	onLog = true
@@ -121,8 +127,7 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause = true
 			score_timer.paused = true
 			_ready()
-	if area.is_in_group("log") or area.is_in_group("Node") or area.is_in_group("Node2"):
-		print("e")
+	
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -148,6 +153,8 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		GlobalData.frog5 = true
 		print("at goal 5")
 		handle_lilypad()
+
+	
 	
 func handle_lilypad():
 	score_timer.paused = true
@@ -181,3 +188,20 @@ func _on_ScoreTimer_timeout():
 func drowing():
 	if position.y > 400:
 		print("drownig")
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("log"):
+		log_node = area
+		log_position = area.position
+	elif area.get_collision_layer() == 2:
+		print("death")
+		
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("log"):
+		if area == log_node:
+			log_node = null
+			log_position = Vector2.ZERO
+
+func is_on_log():
+	return log_node != null
+
