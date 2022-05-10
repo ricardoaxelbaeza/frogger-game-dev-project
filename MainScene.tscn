@@ -19,6 +19,7 @@
 [ext_resource path="res://Key.tscn" type="PackedScene" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=20]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -593,6 +594,9 @@ position = Vector2( -755, -8 )
 
 [node name="Key" parent="." instance=ExtResource( 17 )]
 position = Vector2( 806, 1332 )
+
+[node name="Door" parent="." instance=ExtResource( 18 )]
+position = Vector2( 136, 1464 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
