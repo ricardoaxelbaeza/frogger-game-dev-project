@@ -17,7 +17,9 @@
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
 [ext_resource path="res://Art/FrogOnPad.png" type="Texture" id=16]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=18]
+[ext_resource path="res://log.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -260,6 +262,7 @@ polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -8
 
 [node name="BorderLeft" type="StaticBody2D" parent="Borders"]
 position = Vector2( 225, 639 )
+
 scale = Vector2( 0.75, 0.75 )
 __meta__ = {
 "_edit_group_": true
@@ -517,6 +520,61 @@ one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 462, 1504 )
+
+[node name="log" type="Node" parent="."]
+
+[node name="log" parent="log" instance=ExtResource( 18 )]
+position = Vector2( -745, 44 )
+
+[node name="log2" parent="log" instance=ExtResource( 18 )]
+position = Vector2( -387, 43 )
+
+[node name="log3" parent="log" instance=ExtResource( 18 )]
+position = Vector2( -561, 43 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="log" parent="Node" instance=ExtResource( 18 )]
+position = Vector2( -334, -190 )
+
+[node name="log2" parent="Node" instance=ExtResource( 18 )]
+position = Vector2( -420, -68 )
+
+[node name="log3" parent="Node" instance=ExtResource( 18 )]
+position = Vector2( -442, -133 )
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="log" parent="Node2" instance=ExtResource( 18 )]
+position = Vector2( -622, -133 )
+
+[node name="log2" parent="Node2" instance=ExtResource( 18 )]
+position = Vector2( -571, -188 )
+
+[node name="log3" parent="Node2" instance=ExtResource( 18 )]
+position = Vector2( -791, -185 )
+
+[node name="Node3" type="Node" parent="."]
+
+[node name="log" parent="Node3" instance=ExtResource( 18 )]
+position = Vector2( -811, -131 )
+
+[node name="log2" parent="Node3" instance=ExtResource( 18 )]
+position = Vector2( -623, -68 )
+
+[node name="log3" parent="Node3" instance=ExtResource( 18 )]
+position = Vector2( -810, -69 )
+
+[node name="Node4" type="Node" parent="."]
+
+[node name="log" parent="Node4" instance=ExtResource( 18 )]
+position = Vector2( -417, -6 )
+
+[node name="log2" parent="Node4" instance=ExtResource( 18 )]
+position = Vector2( -586, -10 )
+
+[node name="log3" parent="Node4" instance=ExtResource( 18 )]
+position = Vector2( -755, -8 )
 
 [node name="Key" parent="." instance=ExtResource( 17 )]
 position = Vector2( 806, 1332 )
