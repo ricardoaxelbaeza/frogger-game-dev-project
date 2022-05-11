@@ -15,7 +15,7 @@
 [ext_resource path="res://Art/Lilypad.png" type="Texture" id=13]
 [ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
-[ext_resource path="res://Art/FrogOnPad.png" type="Texture" id=16]
+[ext_resource path="res://Art/FrogOnLilypad.png" type="Texture" id=16]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
 
