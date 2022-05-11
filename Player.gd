@@ -23,24 +23,32 @@ var d = 0
 var score_timer
 var start_timer
 var second_timer
+var frog_reset_timer
+var pause_timer
 var start_position
 var pause = true
 
+<<<<<<< HEAD
 var active_collision_count = 0
 var velocity := Vector2.ZERO
+=======
+var frog_texture = preload("../frg.png")
+var death_texture = preload("../Art/FrogDeath.png")
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_timer = get_node("../ScoreTimer")
 	start_timer = get_node("../StartTimer")
 	second_timer = get_node("../SecondTimer")
+	frog_reset_timer = get_node("../FrogResetTimer")
+	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
+	sprite.set_texture(frog_texture)
 	if (score_timer.paused == true):
 		score_timer.paused = false
 		score_timer.stop()
-		print(score_timer.paused)
 	start_timer.start()
-	print(start_timer.time_left)
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -56,6 +64,19 @@ func _process(delta): #gets called 60 times a second
 	$"../Lilypads/Lilypad3/Success1".visible = GlobalData.frog3
 	$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
 	$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
+	
+	# reset frogs after all goals have been reached
+	if not frog_reset_timer.is_stopped():
+		if frog_reset_timer.get_time_left() <= 5:
+			GlobalData.frog1 = false
+		if frog_reset_timer.get_time_left() <= 4:
+			GlobalData.frog2 = false
+		if frog_reset_timer.get_time_left() <= 3:
+			GlobalData.frog3 = false
+		if frog_reset_timer.get_time_left() <= 2:
+			GlobalData.frog4 = false
+		if frog_reset_timer.get_time_left() <= 1:
+			GlobalData.frog5 = false
 	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
@@ -122,37 +143,37 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		if GlobalData.lives < 1:
 			game_over()
 		else:
-			position = start_position
+			sprite.set_texture(death_texture)
 			pause = true
+			pause_timer.start()
 			score_timer.paused = true
+<<<<<<< HEAD
 			_ready()
 	
 		 
 		
+=======
+			
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
-		print("at goal 1")
 		handle_lilypad()
 		
 	if area.is_in_group("Lilypad2"):
 		GlobalData.frog2 = true
-		print("at goal 2")
 		handle_lilypad()
 		
 	if area.is_in_group("Lilypad3"):
 		GlobalData.frog3 = true
-		print("at goal 3")
 		handle_lilypad()
 		
 	if area.is_in_group("Lilypad4"):
 		GlobalData.frog4 = true
-		print("at goal 4")
 		handle_lilypad()
 		
 	if area.is_in_group("Lilypad5"):
 		GlobalData.frog5 = true
-		print("at goal 5")
 		handle_lilypad()
 
 func handle_lilypad():
@@ -165,12 +186,16 @@ func handle_lilypad():
 		# +1000 points for getting all 5 frogs to end
 		GlobalData.score += 1000
 		# reset frogs for replay
-		
-		
+		reset_frogs()
 	else:
-		position = start_position
-		pause = true
+		visible = false
+		pause_timer.start()
 		_ready()
+
+func reset_frogs():
+	score_timer.paused = true
+	visible = false
+	frog_reset_timer.start(5)
 
 func game_over():
 	score_timer.stop()
@@ -196,6 +221,7 @@ func _pause():
 		pass
 	pass
 
+<<<<<<< HEAD
 
 
 
@@ -210,3 +236,14 @@ func _on_log_area_entered(area):
 
 func _on_log_area_exited(area):
 	onLog = false
+=======
+func _on_FrogResetTimer_timeout():
+	position = start_position
+	visible = true
+	_ready()
+
+func _on_PauseTimer_timeout():
+	position = start_position
+	visible = true
+	_ready()
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
