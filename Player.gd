@@ -52,11 +52,11 @@ onready var sprite : Sprite = get_node("Sprite") #references the sprite node
 func _process(delta): #gets called 60 times a second
 	if not pause:
 		movement()
-	#$"../Lilypads/Lilypad1/Success1".visible = GlobalData.frog1
-	#$"../Lilypads/Lilypad2/Success1".visible = GlobalData.frog2
-	#$"../Lilypads/Lilypad3/Success1".visible = GlobalData.frog3
-	#$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
-	#$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
+	$"../Lilypads/Lilypad1/Success1".visible = GlobalData.frog1
+	$"../Lilypads/Lilypad2/Success1".visible = GlobalData.frog2
+	$"../Lilypads/Lilypad3/Success1".visible = GlobalData.frog3
+	$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
+	$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
 	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
@@ -166,6 +166,9 @@ func handle_lilypad():
 	if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
 		# +1000 points for getting all 5 frogs to end
 		GlobalData.score += 1000
+		# reset frogs for replay
+		
+		
 	else:
 		position = start_position
 		pause = true

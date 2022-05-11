@@ -407,27 +407,27 @@ script = ExtResource( 12 )
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LivesLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 210.0
-margin_top = 282.0
-margin_right = 306.0
-margin_bottom = 298.0
+margin_left = 206.0
+margin_top = 689.0
+margin_right = 302.0
+margin_bottom = 705.0
 text = "LIVES LEFT: "
 fit_content_height = true
 script = ExtResource( 10 )
 
 [node name="ScoreLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 91.0
-margin_top = 282.0
-margin_right = 179.0
-margin_bottom = 298.0
+margin_left = 44.0
+margin_top = 689.0
+margin_right = 132.0
+margin_bottom = 705.0
 text = "SCORE: "
 script = ExtResource( 14 )
 
 [node name="TimerLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 363.0
-margin_top = 282.0
-margin_right = 443.0
-margin_bottom = 298.0
+margin_left = 383.0
+margin_top = 689.0
+margin_right = 448.0
+margin_bottom = 705.0
 text = "TIME: "
 script = ExtResource( 15 )
 
