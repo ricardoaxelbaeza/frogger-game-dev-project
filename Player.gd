@@ -9,7 +9,8 @@ var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = true
-
+var log_node = null
+var log_position = Vector2.ZERO
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -25,6 +26,9 @@ var start_timer
 var second_timer
 var start_position
 var pause = true
+
+var active_collision_count = 0
+var velocity := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,6 +79,7 @@ func movement():
 		global_position.y += move_speed
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
+	
 		
 #player movement
 func move_input(): 
@@ -122,7 +127,10 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause = true
 			score_timer.paused = true
 			_ready()
-			
+	if area.is_in_group("log"):
+		print("on log")
+		 
+		
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -186,3 +194,9 @@ func _pause():
 		# exit to main menu if player chooses
 		pass
 	pass
+
+
+
+
+
+

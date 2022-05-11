@@ -444,44 +444,36 @@ position = Vector2( 462, 1504 )
 
 [node name="log" type="Node" parent="."]
 
-[node name="log" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -745, 44 )
+[node name="log" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 410, 283 )
+collision_mask = 0
 
 [node name="log2" parent="log" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -387, 43 )
 
 [node name="log3" parent="log" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -561, 43 )
 
 [node name="Node" type="Node" parent="."]
 
 [node name="log" parent="Node" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -334, -190 )
 
 [node name="log2" parent="Node" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -420, -68 )
 
 [node name="log3" parent="Node" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -442, -133 )
 
 [node name="Node2" type="Node" parent="."]
 
 [node name="log" parent="Node2" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -622, -133 )
 
 [node name="log2" parent="Node2" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -571, -188 )
 
 [node name="log3" parent="Node2" instance=ExtResource( 18 )]
-visible = false
 position = Vector2( -791, -185 )
 
 [node name="Node3" type="Node" parent="."]
@@ -515,3 +507,4 @@ position = Vector2( -755, -8 )
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
+[connection signal="area_entered" from="log/log" to="Player" method="_on_log_area_entered"]
