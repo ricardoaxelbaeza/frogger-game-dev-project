@@ -28,7 +28,7 @@ var pause_timer
 var start_position
 var pause = true
 
-var frog_texture = preload("../frg.png")
+var frog_texture = preload("../Art/Frog.png")
 var death_texture = preload("../Art/FrogDeath.png")
 
 # Called when the node enters the scene tree for the first time.
