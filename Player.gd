@@ -24,8 +24,12 @@ var score_timer
 var start_timer
 var second_timer
 var frog_reset_timer
+var pause_timer
 var start_position
 var pause = true
+
+var frog_texture = preload("../frg.png")
+var death_texture = preload("../Art/FrogDeath.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +37,9 @@ func _ready():
 	start_timer = get_node("../StartTimer")
 	second_timer = get_node("../SecondTimer")
 	frog_reset_timer = get_node("../FrogResetTimer")
+	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
+	sprite.set_texture(frog_texture)
 	if (score_timer.paused == true):
 		score_timer.paused = false
 		score_timer.stop()
@@ -131,10 +137,10 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		if GlobalData.lives < 1:
 			game_over()
 		else:
-			position = start_position
-			#pause = true
+			sprite.set_texture(death_texture)
+			pause = true
+			pause_timer.start()
 			score_timer.paused = true
-			_ready()
 			
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
@@ -169,8 +175,8 @@ func handle_lilypad():
 		# reset frogs for replay
 		reset_frogs()
 	else:
-		position = start_position
-		pause = true
+		visible = false
+		pause_timer.start()
 		_ready()
 
 func reset_frogs():
@@ -203,6 +209,11 @@ func _pause():
 	pass
 
 func _on_FrogResetTimer_timeout():
+	position = start_position
+	visible = true
+	_ready()
+
+func _on_PauseTimer_timeout():
 	position = start_position
 	visible = true
 	_ready()
