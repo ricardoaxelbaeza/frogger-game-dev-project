@@ -445,66 +445,17 @@ position = Vector2( 462, 1504 )
 [node name="log" type="Node" parent="."]
 
 [node name="log" parent="log" groups=["log"] instance=ExtResource( 18 )]
-position = Vector2( 410, 283 )
+position = Vector2( 398, 287 )
 collision_mask = 0
 
-[node name="log2" parent="log" instance=ExtResource( 18 )]
-position = Vector2( -387, 43 )
+[node name="log2" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 587, 290 )
 
-[node name="log3" parent="log" instance=ExtResource( 18 )]
-position = Vector2( -561, 43 )
-
-[node name="Node" type="Node" parent="."]
-
-[node name="log" parent="Node" instance=ExtResource( 18 )]
-position = Vector2( -334, -190 )
-
-[node name="log2" parent="Node" instance=ExtResource( 18 )]
-position = Vector2( -420, -68 )
-
-[node name="log3" parent="Node" instance=ExtResource( 18 )]
-position = Vector2( -442, -133 )
-
-[node name="Node2" type="Node" parent="."]
-
-[node name="log" parent="Node2" instance=ExtResource( 18 )]
-position = Vector2( -622, -133 )
-
-[node name="log2" parent="Node2" instance=ExtResource( 18 )]
-position = Vector2( -571, -188 )
-
-[node name="log3" parent="Node2" instance=ExtResource( 18 )]
-position = Vector2( -791, -185 )
-
-[node name="Node3" type="Node" parent="."]
-
-[node name="log" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -811, -131 )
-
-[node name="log2" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -623, -68 )
-
-[node name="log3" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -810, -69 )
-
-[node name="Node4" type="Node" parent="."]
-
-[node name="log" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -417, -6 )
-
-[node name="log2" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -586, -10 )
-
-[node name="log3" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -755, -8 )
+[node name="log3" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 758, 290 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 [connection signal="area_entered" from="log/log" to="Player" method="_on_log_area_entered"]
+[connection signal="area_exited" from="log/log" to="Player" method="_on_log_area_exited"]

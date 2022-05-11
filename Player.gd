@@ -8,9 +8,8 @@ extends KinematicBody2D
 var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
-var onLog : bool = true
-var log_node = null
-var log_position = Vector2.ZERO
+var onLog : bool = false
+
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -127,8 +126,7 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause = true
 			score_timer.paused = true
 			_ready()
-	if area.is_in_group("log"):
-		print("on log")
+	
 		 
 		
 	# Player reaches goal areas:
@@ -203,3 +201,12 @@ func _pause():
 
 
 
+
+func _on_log_area_entered(area):
+	print("h")
+	onLog = true
+	
+
+
+func _on_log_area_exited(area):
+	onLog = false
