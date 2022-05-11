@@ -439,6 +439,12 @@ one_shot = true
 
 [node name="SecondTimer" type="Timer" parent="."]
 
+[node name="FrogResetTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PauseTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 462, 1504 )
 
@@ -515,3 +521,5 @@ position = Vector2( -755, -8 )
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
+[connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
+[connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
