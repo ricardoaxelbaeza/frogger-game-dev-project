@@ -21,7 +21,7 @@
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
 [ext_resource path="res://Audio/arcade-epic-beginning.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Variant Levels/Code/PlayerVariant.gd" type="Script" id=22]
+[ext_resource path="res://Variant Levels/Globals/PlayerVariant.gd" type="Script" id=22]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=24]
 

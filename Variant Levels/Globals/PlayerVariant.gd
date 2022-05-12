@@ -176,7 +176,7 @@ func game_over():
 	music.stop()
 	score_timer.stop()
 	queue_free()
-	get_tree().change_scene("res://Variant Levels/Code/GameOverVariant.tscn")
+	get_tree().change_scene("res://Variant Levels/Globals/GameOverVariant.tscn")
 	GlobalData.key_found = false
 
 func _on_SecondTimer_timeout():
