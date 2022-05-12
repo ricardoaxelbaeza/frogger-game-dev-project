@@ -33,14 +33,8 @@ var death_texture = preload("../Art/FrogDeath.png")
 var jump_sound
 var music
 
-
-
 var active_collision_count = 0
 var velocity := Vector2.ZERO
-
-var frog_texture = preload("../Frog.png")
-var death_texture = preload("../Art/FrogDeath.png")
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
