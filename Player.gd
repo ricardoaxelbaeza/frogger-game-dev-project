@@ -43,8 +43,6 @@ func _ready():
 	frog_reset_timer = get_node("../FrogResetTimer")
 	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
-
-	
 	sprite.set_texture(frog_texture)
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
@@ -156,12 +154,8 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 		else:
 			sprite.set_texture(death_texture)
 			pause = true
-			pause_timer.start()
 			score_timer.paused = true
-
-			_ready()
-	
-		 
+			pause_timer.start()
 
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
@@ -198,7 +192,6 @@ func handle_lilypad():
 	else:
 		visible = false
 		pause_timer.start()
-		_ready()
 
 func reset_frogs():
 	score_timer.paused = true
@@ -224,7 +217,6 @@ func _pause():
 		# exit to main menu if player chooses
 		pass
 	pass
-
 
 func _on_FrogResetTimer_timeout():
 	position = start_position
