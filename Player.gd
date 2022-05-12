@@ -30,6 +30,9 @@ var pause = false
 var frog_texture = preload("../Art/Frog.png")
 var death_texture = preload("../Art/FrogDeath.png")
 
+var jump_sound
+var music
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_timer = get_node("../ScoreTimer")
@@ -37,13 +40,19 @@ func _ready():
 	frog_reset_timer = get_node("../FrogResetTimer")
 	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
+	
 	sprite.set_texture(frog_texture)
+	
+	jump_sound = get_node("../JumpSound")
+	music = get_node("../Music")
+	
 	if (score_timer.paused == true):
 		score_timer.paused = false
 		score_timer.stop()
 	pause = false
 	score_timer.start(30)
 	second_timer.start()
+	music.play()
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -102,19 +111,23 @@ func move_input():
 	if Input.is_action_pressed("move_left") && $L.is_colliding() == false && turn == false:
 		l = tile_size
 		turn = true
+		jump_sound.play()
 	#right movement
 	if Input.is_action_pressed("move_right") && $R.is_colliding() == false && turn == false:
 		r = tile_size
 		turn = true
+		jump_sound.play()
 	#up movement
 	if Input.is_action_pressed("move_up") && $U.is_colliding() == false && turn == false:
 		u = tile_size
 		turn = true
 		GlobalData.score += 10
+		jump_sound.play()
 	#down movement
 	if Input.is_action_pressed("move_down") && $D.is_colliding() == false && turn == false:
 		d = tile_size
 		turn = true
+		jump_sound.play()
 	
 func _on_LogCollider_area_entered(area):
 	onLog = true
@@ -185,6 +198,7 @@ func reset_frogs():
 	frog_reset_timer.start(5)
 
 func game_over():
+	music.stop()
 	score_timer.stop()
 	queue_free()
 	get_tree().change_scene("res://Game Over.tscn")
