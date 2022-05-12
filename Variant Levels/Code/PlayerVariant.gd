@@ -27,8 +27,8 @@ var pause_timer
 var start_position
 var pause = false
 
-var frog_texture = preload("../Art/Frog.png")
-var death_texture = preload("../Art/FrogDeath.png")
+var frog_texture = preload("res://Art/Frog.png")
+var death_texture = preload("res://Art/FrogDeath.png")
 
 var jump_sound
 var music
@@ -176,7 +176,7 @@ func game_over():
 	music.stop()
 	score_timer.stop()
 	queue_free()
-	get_tree().change_scene("res://Game Over.tscn")
+	get_tree().change_scene("res://Variant Levels/Code/GameOverVariant.tscn")
 	GlobalData.key_found = false
 
 func _on_SecondTimer_timeout():
