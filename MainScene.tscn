@@ -118,6 +118,7 @@ tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -15728
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 462, 1504 )
 scale = Vector2( 1.5, 1.5 )
+z_index = 1
 
 [node name="Lilypads" type="Node" parent="."]
 
