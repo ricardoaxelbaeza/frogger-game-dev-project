@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -15,15 +15,12 @@
 [ext_resource path="res://Art/Tilemaps/RockyShoreline.png" type="Texture" id=13]
 [ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
-[ext_resource path="res://Key.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Audio/SFX_Pickup_03.wav" type="AudioStream" id=17]
+[ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
-[ext_resource path="res://Audio/arcade-epic-beginning.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Variant Levels/Globals/PlayerVariant.gd" type="Script" id=22]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=24]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -125,7 +122,7 @@
 4/shapes = [  ]
 4/z_index = 0
 
-[node name="MainScene" type="Node2D"]
+[node name="LeveL3" type="Node2D"]
 position = Vector2( -5, -116 )
 scale = Vector2( 0.5, 0.5 )
 
@@ -136,13 +133,12 @@ z_index = -2
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -1572850, 2, 6, -1572849, 2, 6, -1572848, 2, 6, -1572847, 2, 6, -1507310, 2, 6, -1507309, 2, 6, -1507308, 2, 6, -655366, 4, 0, -655365, 4, 1, -655364, 4, 2, -655363, 4, 3, -655362, 4, 4, -655361, 4, 5, -720896, 4, 6, -720895, 4, 7, -720894, 4, 8, -589830, 2, 131072, -589829, 0, 131078, -589828, 0, 65540, -589827, 0, 65540, -589826, 0, 65540, -589825, 0, 65540, -655360, 0, 65540, -655359, 0, 65540, -655358, 2, 65544, -524294, 2, 131072, -524293, 0, 131078, -524292, 0, 65540, -524291, 0, 65540, -524290, 0, 65540, -524289, 0, 65540, -589824, 0, 65540, -589823, 0, 65540, -589822, 2, 65544, -458758, 2, 131072, -458757, 0, 65540, -458756, 0, 65540, -458755, 0, 65540, -458754, 0, 65540, -458753, 0, 65540, -524288, 0, 65540, -524287, 0, 65540, -524286, 2, 65544, -393222, 2, 131072, -393221, 0, 65540, -393220, 0, 131078, -393219, 0, 131078, -393218, 0, 131074, -393217, 0, 131074, -458752, 0, 131074, -458751, 0, 65540, -458750, 2, 65544, -327686, 3, 0, -327685, 3, 1, -327684, 3, 1, -327683, 3, 1, -327682, 3, 1, -327681, 3, 1, -393216, 3, 1, -393215, 3, 1, -393214, 3, 8, -262150, 2, 262144, -262149, 0, 262145, -262148, 0, 262145, -262147, 0, 262145, -262146, 0, 262145, -262145, 0, 262145, -327680, 0, 262145, -327679, 0, 262145, -327678, 2, 262152, -196614, 2, 262144, -196613, 0, 262145, -196612, 0, 262145, -196611, 0, 262145, -196610, 0, 262145, -196609, 0, 262145, -262144, 0, 262145, -262143, 0, 262145, -262142, 2, 262152, -131078, 2, 262144, -131077, 0, 262145, -131076, 0, 262145, -131075, 0, 262145, -131074, 0, 262145, -131073, 0, 262145, -196608, 0, 262145, -196607, 0, 262145, -196606, 2, 262152, -65542, 2, 262144, -65541, 0, 262145, -65540, 0, 262145, -65539, 0, 262145, -65538, 0, 262147, -65537, 0, 262147, -131072, 0, 262147, -131071, 0, 262147, -131070, 2, 262152, -6, 2, 262144, -5, 0, 262145, -4, 0, 262145, -3, 0, 262145, -2, 0, 262145, -1, 0, 262145, -65536, 0, 262145, -65535, 0, 262145, -65534, 2, 262152, 65530, 2, 327680, 65531, 2, 327682, 65532, 2, 327682, 65533, 2, 327682, 65534, 2, 327682, 65535, 2, 327682, 0, 2, 327682, 1, 2, 327682, 2, 2, 327688, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0 )
+tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -1572850, 2, 6, -1572849, 2, 6, -1572848, 2, 6, -1572847, 2, 6, -1507310, 2, 6, -1507309, 2, 6, -1507308, 2, 6, -655366, 4, 0, -655365, 4, 1, -655364, 4, 1, -655363, 4, 1, -655362, 4, 1, -655361, 4, 1, -720896, 4, 1, -720895, 4, 1, -720894, 4, 8, -589830, 2, 131072, -589829, 0, 131078, -589828, 0, 65540, -589827, 0, 65540, -589826, 0, 65540, -589825, 0, 65540, -655360, 0, 65540, -655359, 0, 65540, -655358, 2, 65544, -524294, 2, 131072, -524293, 0, 131078, -524292, 0, 65540, -524291, 0, 65540, -524290, 0, 65540, -524289, 0, 65540, -589824, 0, 65540, -589823, 0, 65540, -589822, 2, 65544, -458758, 2, 131072, -458757, 0, 65540, -458756, 0, 65540, -458755, 0, 65540, -458754, 0, 65540, -458753, 0, 65540, -524288, 0, 65540, -524287, 0, 65540, -524286, 2, 65544, -393222, 2, 131072, -393221, 0, 65540, -393220, 0, 131078, -393219, 0, 131078, -393218, 0, 131074, -393217, 0, 131074, -458752, 0, 131074, -458751, 0, 65540, -458750, 2, 65544, -327686, 3, 0, -327685, 3, 1, -327684, 3, 1, -327683, 3, 1, -327682, 3, 1, -327681, 3, 1, -393216, 3, 1, -393215, 3, 1, -393214, 3, 8, -262150, 2, 262144, -262149, 0, 262145, -262148, 0, 262145, -262147, 0, 262145, -262146, 0, 262145, -262145, 0, 262145, -327680, 0, 262145, -327679, 0, 262145, -327678, 2, 262152, -196614, 2, 262144, -196613, 0, 262145, -196612, 0, 262145, -196611, 0, 262145, -196610, 0, 262145, -196609, 0, 262145, -262144, 0, 262145, -262143, 0, 262145, -262142, 2, 262152, -131078, 2, 262144, -131077, 0, 262145, -131076, 0, 262145, -131075, 0, 262145, -131074, 0, 262145, -131073, 0, 262145, -196608, 0, 262145, -196607, 0, 262145, -196606, 2, 262152, -65542, 2, 262144, -65541, 0, 262145, -65540, 0, 262145, -65539, 0, 262145, -65538, 0, 262147, -65537, 0, 262147, -131072, 0, 262147, -131071, 0, 262147, -131070, 2, 262152, -6, 2, 262144, -5, 0, 262145, -4, 0, 262145, -3, 0, 262145, -2, 0, 262145, -1, 0, 262145, -65536, 0, 262145, -65535, 0, 262145, -65534, 2, 262152, 65530, 2, 327680, 65531, 2, 327682, 65532, 2, 327682, 65533, 2, 327682, 65534, 2, 327682, 65535, 2, 327682, 0, 2, 327682, 1, 2, 327682, 2, 2, 327688, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 462, 1504 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
-script = ExtResource( 22 )
 
 [node name="Borders" type="Node" parent="."]
 
@@ -168,6 +164,7 @@ texture = ExtResource( 19 )
 [node name="BorderRight" type="StaticBody2D" parent="Borders"]
 position = Vector2( 225, 639 )
 scale = Vector2( 0.75, 0.75 )
+z_index = 1
 __meta__ = {
 "_edit_group_": true
 }
@@ -204,19 +201,19 @@ __meta__ = {
 }
 
 [node name="Rectangle" type="CollisionPolygon2D" parent="Borders/BorderTop"]
-position = Vector2( -10, -1488.85 )
-scale = Vector2( 1.01474, 1.04027 )
+position = Vector2( -10, -1812 )
+scale = Vector2( 1.01474, 1.25 )
 polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="Branch1" parent="Walls" instance=ExtResource( 24 )]
+[node name="Branch1" parent="Walls" instance=ExtResource( 16 )]
 position = Vector2( 11, 94 )
 
-[node name="Branch3" parent="Walls" instance=ExtResource( 24 )]
+[node name="Branch3" parent="Walls" instance=ExtResource( 16 )]
 position = Vector2( 136, 98 )
 
-[node name="Branch2" parent="Walls" instance=ExtResource( 24 )]
+[node name="Branch2" parent="Walls" instance=ExtResource( 16 )]
 position = Vector2( 371, 33 )
 rotation = -3.14159
 
@@ -379,6 +376,7 @@ scale = Vector2( 0.25, 0.25 )
 [node name="Row2" type="Node" parent="."]
 
 [node name="Tank" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 163, 541 )
 scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 4 )
@@ -440,11 +438,13 @@ scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
 
 [node name="Truck2" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 251, 349 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
 
 [node name="Truck3" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
+visible = false
 position = Vector2( 403, 349 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
@@ -452,40 +452,37 @@ script = ExtResource( 12 )
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LivesLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 206.0
-margin_top = 689.0
-margin_right = 302.0
-margin_bottom = 705.0
+margin_left = 210.0
+margin_top = 282.0
+margin_right = 306.0
+margin_bottom = 298.0
 text = "LIVES LEFT: "
 fit_content_height = true
 script = ExtResource( 10 )
 
 [node name="ScoreLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 44.0
-margin_top = 689.0
-margin_right = 132.0
-margin_bottom = 705.0
+margin_left = 91.0
+margin_top = 282.0
+margin_right = 179.0
+margin_bottom = 298.0
 text = "SCORE: "
 script = ExtResource( 14 )
 
 [node name="TimerLabel" type="RichTextLabel" parent="HUD"]
-margin_left = 383.0
-margin_top = 689.0
-margin_right = 448.0
-margin_bottom = 705.0
+margin_left = 363.0
+margin_top = 282.0
+margin_right = 443.0
+margin_bottom = 298.0
 text = "TIME: "
 script = ExtResource( 15 )
 
 [node name="ScoreTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="SecondTimer" type="Timer" parent="."]
-
-[node name="FrogResetTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="PauseTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 462, 1504 )
@@ -560,20 +557,13 @@ position = Vector2( -586, -10 )
 visible = false
 position = Vector2( -755, -8 )
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 17 )
+[node name="Key" parent="." instance=ExtResource( 17 )]
+position = Vector2( 812, 1316 )
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 20 )
-
-[node name="Key" parent="." instance=ExtResource( 16 )]
-position = Vector2( 116, 290 )
-
-[node name="Door" parent="." instance=ExtResource( 23 )]
-position = Vector2( 846, 1502 )
+[node name="Door" parent="." instance=ExtResource( 20 )]
+position = Vector2( 74, 292 )
 scale = Vector2( 0.9, 0.8 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
-[connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
-[connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]

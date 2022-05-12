@@ -44,7 +44,7 @@ func _ready():
 	sprite.set_texture(frog_texture)
 	
 	jump_sound = get_node("../JumpSound")
-	#music = get_node("../Music")
+	music = get_node("../Music")
 	
 	if (score_timer.paused == true):
 		score_timer.paused = false
@@ -52,7 +52,7 @@ func _ready():
 	pause = false
 	score_timer.start(30)
 	second_timer.start()
-	#music.play()
+	music.play()
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
