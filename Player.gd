@@ -8,7 +8,7 @@ extends KinematicBody2D
 var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
-var onLog : bool = true
+var onLog : bool = false
 
 
 var tile_size = 32 # change by multiples of 4
@@ -33,6 +33,15 @@ var death_texture = preload("../Art/FrogDeath.png")
 var jump_sound
 var music
 
+
+
+var active_collision_count = 0
+var velocity := Vector2.ZERO
+
+var frog_texture = preload("../Frog.png")
+var death_texture = preload("../Art/FrogDeath.png")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_timer = get_node("../ScoreTimer")
@@ -40,12 +49,11 @@ func _ready():
 	frog_reset_timer = get_node("../FrogResetTimer")
 	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
+
 	
 	sprite.set_texture(frog_texture)
-	
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
-	
 	if (score_timer.paused == true):
 		score_timer.paused = false
 		score_timer.stop()
@@ -53,6 +61,7 @@ func _ready():
 	score_timer.start(30)
 	second_timer.start()
 	music.play()
+
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -103,6 +112,7 @@ func movement():
 		global_position.y += move_speed
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
+	
 		
 #player movement
 func move_input(): 
@@ -154,7 +164,11 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause = true
 			pause_timer.start()
 			score_timer.paused = true
-			
+
+			_ready()
+	
+		 
+
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -216,6 +230,7 @@ func _pause():
 		# exit to main menu if player chooses
 		pass
 	pass
+
 
 func _on_FrogResetTimer_timeout():
 	position = start_position
