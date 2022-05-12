@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FrogOnPad.png-36a24fedbe3d4e35826cd385a555b912.stex"
+path="res://.import/FrogOnLilypad.png-5682e753a9ca37156b4fe543a57a68bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/FrogOnPad.png"
-dest_files=[ "res://.import/FrogOnPad.png-36a24fedbe3d4e35826cd385a555b912.stex" ]
+source_file="res://Art/FrogOnLilypad.png"
+dest_files=[ "res://.import/FrogOnLilypad.png-5682e753a9ca37156b4fe543a57a68bf.stex" ]
 
 [params]
 
