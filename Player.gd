@@ -29,8 +29,13 @@ var start_position
 var pause = true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var active_collision_count = 0
 var velocity := Vector2.ZERO
+=======
+var frog_texture = preload("../frg.png")
+var death_texture = preload("../Art/FrogDeath.png")
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 =======
 var frog_texture = preload("../frg.png")
 var death_texture = preload("../Art/FrogDeath.png")
@@ -148,11 +153,14 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause_timer.start()
 			score_timer.paused = true
 <<<<<<< HEAD
+<<<<<<< HEAD
 			_ready()
 	
 		 
 		
 =======
+=======
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 			
 >>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 	# Player reaches goal areas:
@@ -222,6 +230,7 @@ func _pause():
 	pass
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -237,6 +246,8 @@ func _on_log_area_entered(area):
 func _on_log_area_exited(area):
 	onLog = false
 =======
+=======
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 func _on_FrogResetTimer_timeout():
 	position = start_position
 	visible = true
@@ -246,4 +257,7 @@ func _on_PauseTimer_timeout():
 	position = start_position
 	visible = true
 	_ready()
+<<<<<<< HEAD
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
+=======
 >>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8

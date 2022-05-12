@@ -464,8 +464,13 @@ position = Vector2( 758, 290 )
 [connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [connection signal="area_entered" from="log/log" to="Player" method="_on_log_area_entered"]
 [connection signal="area_exited" from="log/log" to="Player" method="_on_log_area_exited"]
+=======
+[connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
+[connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
+>>>>>>> 12fa337f4c934d221825ac6b420b4c7f78022dd8
 =======
 [connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
