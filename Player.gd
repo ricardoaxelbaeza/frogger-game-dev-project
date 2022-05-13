@@ -43,7 +43,9 @@ func _ready():
 	frog_reset_timer = get_node("../FrogResetTimer")
 	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
+	
 	sprite.set_texture(frog_texture)
+	
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
 	game_over_sound = get_node("../GameOverSound")

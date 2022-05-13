@@ -32,6 +32,7 @@ var death_texture = preload("res://Art/FrogDeath.png")
 
 var jump_sound
 var music
+var game_over_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +46,7 @@ func _ready():
 	
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
+	game_over_sound = get_node("../GameOverSound")
 	
 	if (score_timer.paused == true):
 		score_timer.paused = false
@@ -142,13 +144,13 @@ func _on_LogCollider_area_exited(area):
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
-		if GlobalData.lives < 1:
+		sprite.set_texture(death_texture)
+		pause = true
+		score_timer.paused = true
+		if GlobalData.lives == 0:
 			game_over()
-		else:
-			sprite.set_texture(death_texture)
-			pause = true
+		elif GlobalData.lives > 0:
 			pause_timer.start()
-			score_timer.paused = true
 			
 
 func handle_lilypad():
@@ -174,9 +176,8 @@ func reset_frogs():
 
 func game_over():
 	music.stop()
+	game_over_sound.play()
 	score_timer.stop()
-	queue_free()
-	get_tree().change_scene("res://Variant Levels/Globals/GameOverVariant.tscn")
 	GlobalData.key_found = false
 
 func _on_SecondTimer_timeout():
@@ -201,3 +202,7 @@ func _on_PauseTimer_timeout():
 	position = start_position
 	visible = true
 	_ready()
+
+func _on_GameOverSound_finished():
+	queue_free()
+	get_tree().change_scene("res://Game Over.tscn")

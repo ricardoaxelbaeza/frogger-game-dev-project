@@ -483,6 +483,6 @@ stream = ExtResource( 21 )
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 [connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
-[connection signal="finished" from="GameOverSound" to="Player" method="_on_GameOverSound_finished"]
 [connection signal="area_entered" from="log/log" to="Player" method="_on_log_area_entered"]
 [connection signal="area_exited" from="log/log" to="Player" method="_on_log_area_exited"]
+[connection signal="finished" from="GameOverSound" to="Player" method="_on_GameOverSound_finished"]
