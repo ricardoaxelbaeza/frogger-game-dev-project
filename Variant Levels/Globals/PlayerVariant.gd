@@ -143,6 +143,7 @@ func _on_LogCollider_area_exited(area):
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
+		$"../LoseLifeSound".play()
 		GlobalData.lives -= 1
 		sprite.set_texture(death_texture)
 		pause = true
