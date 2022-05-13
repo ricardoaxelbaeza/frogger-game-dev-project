@@ -122,6 +122,7 @@ tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -15728
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 462, 1504 )
 scale = Vector2( 1.5, 1.5 )
+z_index = 1
 
 [node name="Lilypads" type="Node" parent="."]
 
@@ -448,78 +449,26 @@ one_shot = true
 [node name="PauseTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FrogResetTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PauseTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 462, 1504 )
 
 [node name="log" type="Node" parent="."]
 
-[node name="log" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -745, 44 )
+[node name="log" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 398, 287 )
+collision_mask = 0
 
-[node name="log2" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -387, 43 )
+[node name="log2" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 587, 290 )
 
-[node name="log3" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -561, 43 )
-
-[node name="Node" type="Node" parent="."]
-
-[node name="log" parent="Node" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -334, -190 )
-
-[node name="log2" parent="Node" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -420, -68 )
-
-[node name="log3" parent="Node" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -442, -133 )
-
-[node name="Node2" type="Node" parent="."]
-
-[node name="log" parent="Node2" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -622, -133 )
-
-[node name="log2" parent="Node2" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -571, -188 )
-
-[node name="log3" parent="Node2" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -791, -185 )
-
-[node name="Node3" type="Node" parent="."]
-
-[node name="log" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -811, -131 )
-
-[node name="log2" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -623, -68 )
-
-[node name="log3" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -810, -69 )
-
-[node name="Node4" type="Node" parent="."]
-
-[node name="log" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -417, -6 )
-
-[node name="log2" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -586, -10 )
-
-[node name="log3" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -755, -8 )
+[node name="log3" parent="log" groups=["log"] instance=ExtResource( 18 )]
+position = Vector2( 758, 290 )
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
@@ -535,3 +484,5 @@ stream = ExtResource( 21 )
 [connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
 [connection signal="finished" from="GameOverSound" to="Player" method="_on_GameOverSound_finished"]
+[connection signal="area_entered" from="log/log" to="Player" method="_on_log_area_entered"]
+[connection signal="area_exited" from="log/log" to="Player" method="_on_log_area_exited"]

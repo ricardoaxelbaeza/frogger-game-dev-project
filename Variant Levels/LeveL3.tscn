@@ -1,0 +1,569 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
+[ext_resource path="res://Car/Car.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Car/Tank.gd" type="Script" id=4]
+[ext_resource path="res://Car/Tank.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Car/PurpleCar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Car/PurpleCar.gd" type="Script" id=7]
+[ext_resource path="res://Car/Racecar.gd" type="Script" id=8]
+[ext_resource path="res://Car/Racecar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HUD/LivesLabel.gd" type="Script" id=10]
+[ext_resource path="res://Car/Truck.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Car/Truck.gd" type="Script" id=12]
+[ext_resource path="res://Art/Tilemaps/RockyShoreline.png" type="Texture" id=13]
+[ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
+[ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
+[ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Key.tscn" type="PackedScene" id=17]
+[ext_resource path="res://log.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
+
+[sub_resource type="TileSet" id=1]
+0/name = "ColecoVision - Frogger - Everything.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 288, 288 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Green Buffer.png 1"
+1/texture = ExtResource( 19 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 32, 32, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "ColecoVision - Frogger - Everything.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 1, 1, 272, 208 )
+2/tile_mode = 2
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 32, 32 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "ColecoVision - Frogger - Everything.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 1, 93, 272, 32 )
+3/tile_mode = 2
+3/autotile/icon_coordinate = Vector2( 0, 0 )
+3/autotile/tile_size = Vector2( 32, 32 )
+3/autotile/spacing = 0
+3/autotile/occluder_map = [  ]
+3/autotile/navpoly_map = [  ]
+3/autotile/priority_map = [  ]
+3/autotile/z_index_map = [  ]
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "RockyShoreline.png 4"
+4/texture = ExtResource( 13 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 288, 32 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 32, 32 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+
+[node name="LeveL3" type="Node2D"]
+position = Vector2( -5, -116 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 682, 1464 )
+scale = Vector2( 3.5, 3.5 )
+z_index = -2
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -1572850, 2, 6, -1572849, 2, 6, -1572848, 2, 6, -1572847, 2, 6, -1507310, 2, 6, -1507309, 2, 6, -1507308, 2, 6, -655366, 4, 0, -655365, 4, 1, -655364, 4, 1, -655363, 4, 1, -655362, 4, 1, -655361, 4, 1, -720896, 4, 1, -720895, 4, 1, -720894, 4, 8, -589830, 2, 131072, -589829, 0, 131078, -589828, 0, 65540, -589827, 0, 65540, -589826, 0, 65540, -589825, 0, 65540, -655360, 0, 65540, -655359, 0, 65540, -655358, 2, 65544, -524294, 2, 131072, -524293, 0, 131078, -524292, 0, 65540, -524291, 0, 65540, -524290, 0, 65540, -524289, 0, 65540, -589824, 0, 65540, -589823, 0, 65540, -589822, 2, 65544, -458758, 2, 131072, -458757, 0, 65540, -458756, 0, 65540, -458755, 0, 65540, -458754, 0, 65540, -458753, 0, 65540, -524288, 0, 65540, -524287, 0, 65540, -524286, 2, 65544, -393222, 2, 131072, -393221, 0, 65540, -393220, 0, 131078, -393219, 0, 131078, -393218, 0, 131074, -393217, 0, 131074, -458752, 0, 131074, -458751, 0, 65540, -458750, 2, 65544, -327686, 3, 0, -327685, 3, 1, -327684, 3, 1, -327683, 3, 1, -327682, 3, 1, -327681, 3, 1, -393216, 3, 1, -393215, 3, 1, -393214, 3, 8, -262150, 2, 262144, -262149, 0, 262145, -262148, 0, 262145, -262147, 0, 262145, -262146, 0, 262145, -262145, 0, 262145, -327680, 0, 262145, -327679, 0, 262145, -327678, 2, 262152, -196614, 2, 262144, -196613, 0, 262145, -196612, 0, 262145, -196611, 0, 262145, -196610, 0, 262145, -196609, 0, 262145, -262144, 0, 262145, -262143, 0, 262145, -262142, 2, 262152, -131078, 2, 262144, -131077, 0, 262145, -131076, 0, 262145, -131075, 0, 262145, -131074, 0, 262145, -131073, 0, 262145, -196608, 0, 262145, -196607, 0, 262145, -196606, 2, 262152, -65542, 2, 262144, -65541, 0, 262145, -65540, 0, 262145, -65539, 0, 262145, -65538, 0, 262147, -65537, 0, 262147, -131072, 0, 262147, -131071, 0, 262147, -131070, 2, 262152, -6, 2, 262144, -5, 0, 262145, -4, 0, 262145, -3, 0, 262145, -2, 0, 262145, -1, 0, 262145, -65536, 0, 262145, -65535, 0, 262145, -65534, 2, 262152, 65530, 2, 327680, 65531, 2, 327682, 65532, 2, 327682, 65533, 2, 327682, 65534, 2, 327682, 65535, 2, 327682, 0, 2, 327682, 1, 2, 327682, 2, 2, 327688, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 462, 1504 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+
+[node name="Borders" type="Node" parent="."]
+
+[node name="BorderLeft" type="StaticBody2D" parent="Borders"]
+position = Vector2( 225, 639 )
+scale = Vector2( 0.75, 0.75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderLeft"]
+position = Vector2( 41.3333, 90.3457 )
+scale = Vector2( 1.05707, 1.05967 )
+z_index = 2
+polygon = PoolVector2Array( -391.019, -699.179, -388.497, -888.807, -305.247, -888.807, -305.247, -44.2077, -392.281, -44.2734 )
+
+[node name="GreenBorder" type="Sprite" parent="Borders/BorderLeft"]
+position = Vector2( -325.333, -404 )
+scale = Vector2( 0.446667, 4.48 )
+z_index = 1
+texture = ExtResource( 19 )
+
+[node name="BorderRight" type="StaticBody2D" parent="Borders"]
+position = Vector2( 225, 639 )
+scale = Vector2( 0.75, 0.75 )
+z_index = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderRight"]
+position = Vector2( 730.667, 93.5891 )
+scale = Vector2( 1.05707, 1.06038 )
+z_index = 2
+polygon = PoolVector2Array( -392.281, -700.343, -392.281, -892.297, -306.509, -892.297, -306.509, -47.4727, -392.281, -47.4727 )
+
+[node name="GreenBorder" type="Sprite" parent="Borders/BorderRight"]
+position = Vector2( 361.333, -404.667 )
+scale = Vector2( 0.446667, 4.47333 )
+z_index = 1
+texture = ExtResource( 19 )
+
+[node name="BorderBottom" type="StaticBody2D" parent="Borders"]
+position = Vector2( -5, -116 )
+scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/BorderBottom"]
+position = Vector2( -10.2075, -1212.5 )
+scale = Vector2( 1.01474, 1.77083 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="BorderTop" type="StaticBody2D" parent="Borders"]
+position = Vector2( -5, -61 )
+scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Rectangle" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( -10, -1812 )
+scale = Vector2( 1.01474, 1.25 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Branch1" parent="Walls" instance=ExtResource( 16 )]
+position = Vector2( 11, 94 )
+
+[node name="Branch3" parent="Walls" instance=ExtResource( 16 )]
+position = Vector2( 136, 98 )
+
+[node name="Branch2" parent="Walls" instance=ExtResource( 16 )]
+position = Vector2( 371, 33 )
+rotation = -3.14159
+
+[node name="ConeRow1" type="Node" parent="Walls"]
+
+[node name="TrafficCone1" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 676 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone2" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 651 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone3" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 624 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone4" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 597 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone5" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 570 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone6" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 542 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="ConeRow2" type="Node" parent="Walls"]
+
+[node name="TrafficCone3" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 451, 367 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone4" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 399, 363 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone5" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 426, 382 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone6" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 375, 382 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone7" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 350, 363 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone8" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 325, 381 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone9" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 300, 366 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone10" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 272, 382 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone11" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 245, 367 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="ConeRow3" type="Node" parent="Walls"]
+
+[node name="TrafficCone6" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 53, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone8" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 27, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone9" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 103, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone10" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 79, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone11" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 128, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="ConeRow4" type="Node" parent="Walls"]
+
+[node name="TrafficCone6" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 107, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone8" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 80, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone9" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 162, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone10" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 134, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone11" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 189, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone12" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 212, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="Row1" type="Node" parent="."]
+
+[node name="Car" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
+position = Vector2( 90, 606 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Car2" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
+position = Vector2( 226, 606 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Car3" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
+position = Vector2( 426, 606 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Car4" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
+position = Vector2( 562, 606 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Row2" type="Node" parent="."]
+
+[node name="Tank" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 163, 541 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
+
+[node name="Tank2" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
+position = Vector2( 499, 541 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
+
+[node name="Tank3" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
+position = Vector2( 339, 541 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
+
+[node name="Tank4" parent="Row2" groups=["Row2Cars"] instance=ExtResource( 5 )]
+position = Vector2( 19, 541 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 4 )
+
+[node name="Row3" type="Node" parent="."]
+
+[node name="PurpleCar" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
+position = Vector2( 563, 474 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 7 )
+
+[node name="PurpleCar2" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
+position = Vector2( 427, 474 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 7 )
+
+[node name="PurpleCar3" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
+position = Vector2( 227, 474 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 7 )
+
+[node name="PurpleCar4" parent="Row3" groups=["Row3Cars"] instance=ExtResource( 6 )]
+position = Vector2( 91, 474 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 7 )
+
+[node name="Row4" type="Node" parent="."]
+
+[node name="Racecar" parent="Row4" groups=["Row4Cars"] instance=ExtResource( 9 )]
+position = Vector2( 347, 410 )
+scale = Vector2( 0.15, 0.15 )
+script = ExtResource( 8 )
+
+[node name="Racecar2" parent="Row4" groups=["Row4Cars"] instance=ExtResource( 9 )]
+position = Vector2( 275, 410 )
+scale = Vector2( 0.15, 0.15 )
+script = ExtResource( 8 )
+
+[node name="Row5" type="Node" parent="."]
+
+[node name="Truck" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
+position = Vector2( 99, 349 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 12 )
+
+[node name="Truck2" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 251, 349 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 12 )
+
+[node name="Truck3" parent="Row5" groups=["Row5Cars"] instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 403, 349 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 12 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="LivesLabel" type="RichTextLabel" parent="HUD"]
+margin_left = 210.0
+margin_top = 282.0
+margin_right = 306.0
+margin_bottom = 298.0
+text = "LIVES LEFT: "
+fit_content_height = true
+script = ExtResource( 10 )
+
+[node name="ScoreLabel" type="RichTextLabel" parent="HUD"]
+margin_left = 91.0
+margin_top = 282.0
+margin_right = 179.0
+margin_bottom = 298.0
+text = "SCORE: "
+script = ExtResource( 14 )
+
+[node name="TimerLabel" type="RichTextLabel" parent="HUD"]
+margin_left = 363.0
+margin_top = 282.0
+margin_right = 443.0
+margin_bottom = 298.0
+text = "TIME: "
+script = ExtResource( 15 )
+
+[node name="ScoreTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SecondTimer" type="Timer" parent="."]
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 462, 1504 )
+
+[node name="log" type="Node" parent="."]
+
+[node name="log" parent="log" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -745, 44 )
+
+[node name="log2" parent="log" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -387, 43 )
+
+[node name="log3" parent="log" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -561, 43 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="log" parent="Node" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -334, -190 )
+
+[node name="log2" parent="Node" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -420, -68 )
+
+[node name="log3" parent="Node" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -442, -133 )
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="log" parent="Node2" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -622, -133 )
+
+[node name="log2" parent="Node2" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -571, -188 )
+
+[node name="log3" parent="Node2" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -791, -185 )
+
+[node name="Node3" type="Node" parent="."]
+
+[node name="log" parent="Node3" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -811, -131 )
+
+[node name="log2" parent="Node3" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -623, -68 )
+
+[node name="log3" parent="Node3" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -810, -69 )
+
+[node name="Node4" type="Node" parent="."]
+
+[node name="log" parent="Node4" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -417, -6 )
+
+[node name="log2" parent="Node4" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -586, -10 )
+
+[node name="log3" parent="Node4" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -755, -8 )
+
+[node name="Key" parent="." instance=ExtResource( 17 )]
+position = Vector2( 812, 1316 )
+
+[node name="Door" parent="." instance=ExtResource( 20 )]
+position = Vector2( 74, 292 )
+scale = Vector2( 0.9, 0.8 )
+
+[connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="Player" method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]

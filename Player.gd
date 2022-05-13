@@ -8,7 +8,7 @@ extends KinematicBody2D
 var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
-var onLog : bool = true
+var onLog : bool = false
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -32,7 +32,9 @@ var death_texture = preload("../Art/FrogDeath.png")
 var jump_sound
 var music
 var game_over_sound
-var game_over_played
+
+var active_collision_count = 0
+var velocity := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,14 +43,11 @@ func _ready():
 	frog_reset_timer = get_node("../FrogResetTimer")
 	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
-	
 	sprite.set_texture(frog_texture)
-	
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
 	game_over_sound = get_node("../GameOverSound")
-	game_over_played = false
-	
+  
 	if (score_timer.paused == true):
 		score_timer.paused = false
 		score_timer.stop()
@@ -56,6 +55,7 @@ func _ready():
 	score_timer.start(30)
 	second_timer.start()
 	music.play()
+
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -106,6 +106,7 @@ func movement():
 		global_position.y += move_speed
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
+	
 		
 #player movement
 func move_input(): 
@@ -132,6 +133,7 @@ func move_input():
 		turn = true
 		jump_sound.play()
 
+var status = 0
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
@@ -142,27 +144,46 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			game_over()
 		elif GlobalData.lives > 0:
 			pause_timer.start()
-			
+      
+	if area.is_in_group("log"):
+			status += 1
+			print(status)
+      
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
 		handle_lilypad()
-		
+
 	if area.is_in_group("Lilypad2"):
 		GlobalData.frog2 = true
 		handle_lilypad()
-		
+
 	if area.is_in_group("Lilypad3"):
 		GlobalData.frog3 = true
 		handle_lilypad()
-		
+
 	if area.is_in_group("Lilypad4"):
 		GlobalData.frog4 = true
 		handle_lilypad()
-		
+
 	if area.is_in_group("Lilypad5"):
 		GlobalData.frog5 = true
 		handle_lilypad()
+		
+
+func _on_CollisionBox_area_exited(area):
+	if area.is_in_group("log"):
+		status -= 1
+		print(status)
+		if status == 0:
+			GlobalData.lives -= 1
+			if GlobalData.lives < 1:
+				game_over()
+			else:
+				sprite.set_texture(death_texture)
+				pause = true
+				pause_timer.start()
+				score_timer.paused = true
 
 func handle_lilypad():
 	score_timer.paused = true
@@ -178,7 +199,6 @@ func handle_lilypad():
 	else:
 		visible = false
 		pause_timer.start()
-		_ready()
 
 func reset_frogs():
 	score_timer.paused = true
