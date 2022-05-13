@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Audio/vgdeathsound.wav" type="AudioStream" id=25]
 [ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=26]
 [ext_resource path="res://Audio/SFX_Pickup_06.wav" type="AudioStream" id=27]
+[ext_resource path="res://Audio/Jingle_Achievement_00.wav" type="AudioStream" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -511,6 +512,9 @@ stream = ExtResource( 26 )
 
 [node name="KeySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
 
 [node name="Key" parent="." instance=ExtResource( 16 )]
 position = Vector2( 90, 288 )
