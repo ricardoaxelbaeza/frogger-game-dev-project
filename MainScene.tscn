@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
 [ext_resource path="res://Audio/arcade-epic-beginning.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Audio/vgdeathsound.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/Collect_Point_01.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/Jingle_Achievement_00.wav" type="AudioStream" id=24]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -478,6 +481,15 @@ stream = ExtResource( 20 )
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
+
+[node name="LoseLifeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+
+[node name="GoalSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+
+[node name="5FrogsSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]

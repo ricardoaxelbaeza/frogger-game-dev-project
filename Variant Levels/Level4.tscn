@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -25,7 +25,11 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Audio/vgdeathsound.wav" type="AudioStream" id=25]
-[ext_resource path="res://You Win.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=26]
+[ext_resource path="res://Audio/SFX_Pickup_06.wav" type="AudioStream" id=27]
+[ext_resource path="res://Audio/Jingle_Win_00.wav" type="AudioStream" id=28]
+[ext_resource path="res://Audio/Hit_02.wav" type="AudioStream" id=29]
+[ext_resource path="res://You Win.tscn" type="PackedScene" id=30]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -509,6 +513,18 @@ stream = ExtResource( 20 )
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
+
+[node name="LoseLifeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+
+[node name="KeySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+
+[node name="NoKeySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
 
 [node name="Key" parent="." instance=ExtResource( 16 )]
 position = Vector2( 858, 1104 )
