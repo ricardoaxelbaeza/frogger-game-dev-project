@@ -1,14 +1,21 @@
-extends Area2D
-class_name Log
-var log_speed = 30
+extends Sprite
+
+
+var velocity = 30
 
 
 func _process(delta):
-	position.x -= log_speed * delta
-	if position.x < -950:
-		
-		position.x += 900
+	position.x -= velocity * delta
+	if position.x < -70:
+		position.x += 670
 	
 	
 	
 		
+
+
+
+
+
+
+

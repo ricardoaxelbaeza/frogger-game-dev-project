@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Audio/SFX_Pickup_03.wav" type="AudioStream" id=17]
-[ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
 [ext_resource path="res://Audio/Jingle_Achievement_00.wav" type="AudioStream" id=20]
 [ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
@@ -494,76 +493,6 @@ one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 462, 1504 )
-
-[node name="log" type="Node" parent="."]
-
-[node name="log" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -745, 44 )
-
-[node name="log2" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -387, 43 )
-
-[node name="log3" parent="log" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -561, 43 )
-
-[node name="Node" type="Node" parent="."]
-
-[node name="log" parent="Node" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -334, -190 )
-
-[node name="log2" parent="Node" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -420, -68 )
-
-[node name="log3" parent="Node" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -442, -133 )
-
-[node name="Node2" type="Node" parent="."]
-
-[node name="log" parent="Node2" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -622, -133 )
-
-[node name="log2" parent="Node2" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -571, -188 )
-
-[node name="log3" parent="Node2" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -791, -185 )
-
-[node name="Node3" type="Node" parent="."]
-
-[node name="log" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -811, -131 )
-
-[node name="log2" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -623, -68 )
-
-[node name="log3" parent="Node3" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -810, -69 )
-
-[node name="Node4" type="Node" parent="."]
-
-[node name="log" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -417, -6 )
-
-[node name="log2" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -586, -10 )
-
-[node name="log3" parent="Node4" instance=ExtResource( 18 )]
-visible = false
-position = Vector2( -755, -8 )
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
