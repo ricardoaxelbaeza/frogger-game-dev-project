@@ -30,7 +30,6 @@ _global_script_classes=[ {
 "path": "res://log.gd"
 }, {
 "base": "KinematicBody2D",
-"base": "Reference",
 "class": "Obstacle",
 "language": "GDScript",
 "path": "res://Obstacles/Obstacle.gd"
