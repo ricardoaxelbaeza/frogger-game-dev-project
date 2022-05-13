@@ -144,11 +144,11 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			game_over()
 		elif GlobalData.lives > 0:
 			pause_timer.start()
-      
+	  
 	if area.is_in_group("log"):
 			status += 1
 			print(status)
-      
+	  
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
