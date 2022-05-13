@@ -38,8 +38,7 @@ var music
 var active_collision_count = 0
 var velocity := Vector2.ZERO
 
-var frog_texture = preload("../Frog.png")
-var death_texture = preload("../Art/FrogDeath.png")
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -153,7 +152,7 @@ func _on_LogCollider_area_exited(area):
 			
 		else:
 			get_tree().reload_current_scene()
-
+var status = 0
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
@@ -166,7 +165,9 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			score_timer.paused = true
 
 			_ready()
-	
+	 if area.is_in_group("log"):
+			status += 1
+			print(status)
 		 
 
 	# Player reaches goal areas:
@@ -189,7 +190,19 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Lilypad5"):
 		GlobalData.frog5 = true
 		handle_lilypad()
-
+func _on_CollisionBox_area_exited(area):
+	if area.is_in_group("log"):
+		status -= 1
+		print(status)
+		if status == 0:
+			GlobalData.lives -= 1
+			if GlobalData.lives < 1:
+				game_over()
+			else:
+				sprite.set_texture(death_texture)
+				pause = true
+				pause_timer.start()
+				score_timer.paused = true
 func handle_lilypad():
 	score_timer.paused = true
 	# +50 points for getting a frog to the lilypad
