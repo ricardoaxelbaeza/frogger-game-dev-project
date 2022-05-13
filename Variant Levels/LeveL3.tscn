@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -27,7 +27,6 @@
 [ext_resource path="res://Audio/Casual 8-bit 2.wav" type="AudioStream" id=25]
 [ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=26]
 [ext_resource path="res://Audio/SFX_Pickup_06.wav" type="AudioStream" id=27]
-[ext_resource path="res://Variant Levels/Level4.tscn" type="PackedScene" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -594,3 +593,4 @@ next_level = ExtResource( 25 )
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 [connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
+[connection signal="finished" from="WinSound" to="Door" method="_on_WinSound_finished"]
