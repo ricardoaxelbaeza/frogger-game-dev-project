@@ -10,7 +10,6 @@ var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = false
 
-
 var tile_size = 32 # change by multiples of 4
 var turn = false
 var move_speed = 4
@@ -32,6 +31,7 @@ var death_texture = preload("../Art/FrogDeath.png")
 
 var jump_sound
 var music
+var game_over_sound
 
 var active_collision_count = 0
 var velocity := Vector2.ZERO
@@ -46,6 +46,8 @@ func _ready():
 	sprite.set_texture(frog_texture)
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
+	game_over_sound = get_node("../GameOverSound")
+  
 	if (score_timer.paused == true):
 		score_timer.paused = false
 		score_timer.stop()
@@ -130,38 +132,23 @@ func move_input():
 		d = tile_size
 		turn = true
 		jump_sound.play()
-	
-func _on_LogCollider_area_entered(area):
-	onLog = true
-
-func _on_LogCollider_area_exited(area):
-	onLog = false
-	if not onLog and position.y < 350:
-		GlobalData.lives -= 1
-		if GlobalData.lives < 0:
-			queue_free()
-			# maybe show game over? then afer player presses up/down/left right:
-			get_tree().change_scene("res://MainMenu.tscn")
-			
-		else:
-			get_tree().reload_current_scene()
 
 var status = 0
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
-		if GlobalData.lives < 1:
+		sprite.set_texture(death_texture)
+		pause = true
+		score_timer.paused = true
+		if GlobalData.lives == 0:
 			game_over()
-		else:
-			sprite.set_texture(death_texture)
-			pause = true
+		elif GlobalData.lives > 0:
 			pause_timer.start()
-			score_timer.paused = true
-
+      
 	if area.is_in_group("log"):
 			status += 1
 			print(status)
-
+      
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -220,9 +207,8 @@ func reset_frogs():
 
 func game_over():
 	music.stop()
+	game_over_sound.play()
 	score_timer.stop()
-	queue_free()
-	get_tree().change_scene("res://Game Over.tscn")
 	GlobalData.key_found = false
 
 func _on_SecondTimer_timeout():
@@ -247,3 +233,7 @@ func _on_PauseTimer_timeout():
 	position = start_position
 	visible = true
 	_ready()
+
+func _on_GameOverSound_finished():
+	queue_free()
+	get_tree().change_scene("res://Game Over.tscn")
