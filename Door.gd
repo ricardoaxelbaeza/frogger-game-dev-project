@@ -15,8 +15,11 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if(GlobalData.key_found == true):
 		print("key has been found")
-		#change scene to next level depending on current scene
-		get_tree().change_scene_to(next_level)
+		$"../WinSound".play()
 	else: 
 		print("please find key")
 		$"../NoKeySound".play()
+
+func _on_WinSound_finished():
+	#change scene to next level depending on current scene
+	get_tree().change_scene_to(next_level)
