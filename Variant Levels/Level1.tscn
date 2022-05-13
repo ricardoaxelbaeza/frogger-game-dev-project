@@ -505,10 +505,10 @@ stream = ExtResource( 20 )
 stream = ExtResource( 25 )
 
 [node name="Key" parent="." instance=ExtResource( 16 )]
-position = Vector2( 116, 290 )
+position = Vector2( 90, 288 )
 
 [node name="Door" parent="." instance=ExtResource( 23 )]
-position = Vector2( 878, 288 )
+position = Vector2( 898, 288 )
 scale = Vector2( 0.9, 0.8 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
