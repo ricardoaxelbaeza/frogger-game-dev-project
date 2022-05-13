@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
 [ext_resource path="res://Key.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Audio/SFX_Pickup_03.wav" type="AudioStream" id=17]
+[ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
 [ext_resource path="res://Audio/Jingle_Achievement_00.wav" type="AudioStream" id=20]
 [ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
@@ -28,6 +29,7 @@
 [ext_resource path="res://Audio/SFX_Pickup_06.wav" type="AudioStream" id=27]
 [ext_resource path="res://Variant Levels/Level4.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Audio/Hit_02.wav" type="AudioStream" id=29]
+[ext_resource path="res://otherlog.tscn" type="PackedScene" id=30]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -522,6 +524,46 @@ position = Vector2( 100, 292 )
 position = Vector2( 768, 1502 )
 scale = Vector2( 0.9, 0.8 )
 next_level = ExtResource( 28 )
+
+[node name="Logs2" type="Node" parent="." groups=["otherlog"]]
+
+[node name="Sprite" parent="Logs2" groups=["otherlog"] instance=ExtResource( 30 )]
+position = Vector2( -58, 261 )
+scale = Vector2( 1, 1.1875 )
+
+[node name="Sprite2" parent="Logs2" groups=["otherlog"] instance=ExtResource( 30 )]
+position = Vector2( 188, 263 )
+scale = Vector2( 1, 1.1875 )
+
+[node name="Sprite3" parent="Logs2" groups=["otherlog"] instance=ExtResource( 30 )]
+position = Vector2( 444, 272 )
+scale = Vector2( 1, 1.09375 )
+
+[node name="Sprite4" parent="Logs2" groups=["otherlog"] instance=ExtResource( 30 )]
+position = Vector2( 205, 139 )
+scale = Vector2( 1, 1.34375 )
+
+[node name="Sprite5" parent="Logs2" groups=["otherlog"] instance=ExtResource( 30 )]
+position = Vector2( -49, 135 )
+scale = Vector2( 1, 1.40625 )
+
+[node name="log" type="Node" parent="." groups=["log"]]
+
+[node name="Sprite2" parent="log" instance=ExtResource( 18 )]
+position = Vector2( 398, 80 )
+scale = Vector2( 1, 1.21875 )
+
+[node name="Sprite3" parent="log" instance=ExtResource( 18 )]
+position = Vector2( 434, 204 )
+scale = Vector2( 0.84375, 1.125 )
+
+[node name="Sprite5" parent="log" instance=ExtResource( 18 )]
+position = Vector2( 150, 207 )
+scale = Vector2( 1, 1.09375 )
+
+[node name="Sprite6" parent="log" instance=ExtResource( 18 )]
+position = Vector2( 82, 77 )
+scale = Vector2( 1, 1.125 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
