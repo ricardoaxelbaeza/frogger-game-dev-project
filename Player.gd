@@ -36,6 +36,7 @@ var game_over_sound
 var active_collision_count = 0
 var velocity := Vector2.ZERO
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_timer = get_node("../ScoreTimer")
@@ -64,6 +65,9 @@ var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving pe
 
 onready var sprite : Sprite = get_node("Sprite") #references the sprite node
 
+var velocity = Vector2()
+var status = 0	
+var logvelocity = Vector2()
 	
 func _process(delta): #gets called 60 times a second
 	if not pause:
@@ -86,6 +90,8 @@ func _process(delta): #gets called 60 times a second
 			GlobalData.frog4 = false
 		if frog_reset_timer.get_time_left() <= 1:
 			GlobalData.frog5 = false
+  if status == 1:
+		velocity.x += logvelocity.x
 	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
@@ -108,6 +114,8 @@ func movement():
 		global_position.y += move_speed
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
+  if status == 1:
+		global_position.x += 3
 	
 		
 #player movement
@@ -135,7 +143,7 @@ func move_input():
 		turn = true
 		jump_sound.play()
 
-var status = 0
+
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
@@ -146,11 +154,11 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			game_over()
 		elif GlobalData.lives > 0:
 			pause_timer.start()
-	  
-	if area.is_in_group("log"):
+      score_timer.paused = true
+      _ready()
+	 if area.is_in_group("log"):
 			status += 1
 			print(status)
-	  
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -171,7 +179,6 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Lilypad5"):
 		GlobalData.frog5 = true
 		handle_lilypad()
-		
 
 func _on_CollisionBox_area_exited(area):
 	if area.is_in_group("log"):
