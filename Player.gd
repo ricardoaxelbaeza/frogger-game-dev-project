@@ -75,17 +75,17 @@ func _process(delta): #gets called 60 times a second
 	$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
 	
 	# reset frogs after all goals have been reached
-	if not frog_reset_timer.is_stopped():
-		if frog_reset_timer.get_time_left() <= 5:
-			GlobalData.frog1 = false
-		if frog_reset_timer.get_time_left() <= 4:
-			GlobalData.frog2 = false
-		if frog_reset_timer.get_time_left() <= 3:
-			GlobalData.frog3 = false
-		if frog_reset_timer.get_time_left() <= 2:
-			GlobalData.frog4 = false
-		if frog_reset_timer.get_time_left() <= 1:
-			GlobalData.frog5 = false
+	# if not frog_reset_timer.is_stopped():
+#		if frog_reset_timer.get_time_left() <= 5:
+#			GlobalData.frog1 = false
+#		if frog_reset_timer.get_time_left() <= 4:
+#			GlobalData.frog2 = false
+#		if frog_reset_timer.get_time_left() <= 3:
+#			GlobalData.frog3 = false
+#		if frog_reset_timer.get_time_left() <= 2:
+#			GlobalData.frog4 = false
+#		if frog_reset_timer.get_time_left() <= 1:
+#			GlobalData.frog5 = false
 	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
@@ -189,6 +189,7 @@ func _on_CollisionBox_area_exited(area):
 				score_timer.paused = true
 
 func handle_lilypad():
+	$"../GoalSound".play()
 	score_timer.paused = true
 	# +50 points for getting a frog to the lilypad
 	GlobalData.score += 50
@@ -206,7 +207,8 @@ func handle_lilypad():
 func reset_frogs():
 	score_timer.paused = true
 	visible = false
-	frog_reset_timer.start(5)
+	frog_reset_timer.start(2)
+	$"../5FrogsSound".play()
 
 func game_over():
 	music.stop()
@@ -228,6 +230,11 @@ func _pause():
 	pass
 
 func _on_FrogResetTimer_timeout():
+	GlobalData.frog1 = false
+	GlobalData.frog2 = false
+	GlobalData.frog3 = false
+	GlobalData.frog4 = false
+	GlobalData.frog5 = false
 	position = start_position
 	visible = true
 	_ready()
