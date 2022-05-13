@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -19,12 +19,11 @@
 [ext_resource path="res://Audio/SFX_Pickup_03.wav" type="AudioStream" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
-[ext_resource path="res://Audio/Casual 8-bit 2.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/arcade-epic-beginning.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Variant Levels/Globals/PlayerVariant.gd" type="Script" id=22]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Audio/vgdeathsound.wav" type="AudioStream" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -209,90 +208,6 @@ position = Vector2( -10, -1488.85 )
 scale = Vector2( 1.01474, 1.04027 )
 polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="Walls" type="Node" parent="."]
-
-[node name="Branch1" parent="Walls" instance=ExtResource( 24 )]
-
-[node name="Branch2" parent="Walls" instance=ExtResource( 24 )]
-position = Vector2( 335, 5 )
-rotation = -3.14159
-
-[node name="ConeRow1" type="Node" parent="Walls"]
-
-[node name="TrafficCone1" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 336, 621 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone2" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 336, 647 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="ConeRow2" type="Node" parent="Walls"]
-
-[node name="TrafficCone3" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 192, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone4" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 213, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone5" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 235, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone6" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 257, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone7" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 278, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone8" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 300, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone9" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 171, 485 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone10" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 171, 511 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="ConeRow3" type="Node" parent="Walls"]
-
-[node name="TrafficCone1" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
-position = Vector2( 101, 422 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone2" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
-position = Vector2( 80, 422 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone3" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
-position = Vector2( 143, 422 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone4" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
-position = Vector2( 122, 422 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
 [node name="Row1" type="Node" parent="."]
 
 [node name="Car" parent="Row1" groups=["Row1Cars"] instance=ExtResource( 3 )]
@@ -383,6 +298,156 @@ script = ExtResource( 12 )
 position = Vector2( 403, 349 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 12 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Branch1" parent="Walls" instance=ExtResource( 24 )]
+position = Vector2( 11, 94 )
+
+[node name="Branch3" parent="Walls" instance=ExtResource( 24 )]
+position = Vector2( 136, 98 )
+
+[node name="Branch2" parent="Walls" instance=ExtResource( 24 )]
+position = Vector2( 371, 33 )
+rotation = -3.14159
+
+[node name="ConeRow1" type="Node" parent="Walls"]
+
+[node name="TrafficCone1" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 676 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone2" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 651 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone3" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 624 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone4" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 597 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone5" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 570 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone6" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
+position = Vector2( 325, 542 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="ConeRow2" type="Node" parent="Walls"]
+
+[node name="TrafficCone3" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 451, 367 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone4" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 399, 363 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone5" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 426, 382 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone6" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 375, 382 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone7" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 350, 363 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone8" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 325, 381 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone9" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 300, 366 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone10" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 272, 382 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone11" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
+position = Vector2( 245, 367 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="ConeRow3" type="Node" parent="Walls"]
+
+[node name="TrafficCone6" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 53, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone8" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 27, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone9" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 103, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone10" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 79, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone11" parent="Walls/ConeRow3" instance=ExtResource( 21 )]
+position = Vector2( 128, 461 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="ConeRow4" type="Node" parent="Walls"]
+
+[node name="TrafficCone6" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 107, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone8" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 80, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone9" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 162, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone10" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 134, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone11" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 189, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
+
+[node name="TrafficCone12" parent="Walls/ConeRow4" instance=ExtResource( 21 )]
+position = Vector2( 212, 577 )
+scale = Vector2( 1.5, 1.75 )
+z_index = -1
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -501,18 +566,14 @@ stream = ExtResource( 17 )
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 20 )
 
-[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 25 )
-
 [node name="Key" parent="." instance=ExtResource( 16 )]
-position = Vector2( 90, 288 )
+position = Vector2( 100, 292 )
 
 [node name="Door" parent="." instance=ExtResource( 23 )]
-position = Vector2( 898, 288 )
+position = Vector2( 768, 1502 )
 scale = Vector2( 0.9, 0.8 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 [connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
-[connection signal="finished" from="GameOverSound" to="Player" method="_on_GameOverSound_finished"]
