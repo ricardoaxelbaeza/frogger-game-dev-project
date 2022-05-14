@@ -477,7 +477,6 @@ scale = Vector2( 1, 1.125 )
 stream = ExtResource( 17 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-visible = false
 stream = ExtResource( 20 )
 
 [node name="Logs2" type="Node" parent="." groups=["otherlog"]]

@@ -36,6 +36,10 @@ var game_over_sound
 var active_collision_count = 0
 var velocity := Vector2.ZERO
 
+var status = 0
+var status2 = 0
+var logvelocity = Vector2()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score_timer = get_node("../ScoreTimer")
@@ -109,6 +113,10 @@ func movement():
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
 	
+	if status > 0 and status2 == 0:
+		global_position.x -= 1.5
+	if status == 0 and status2 > 0:
+		global_position.x += 1.5
 		
 #player movement
 func move_input(): 
@@ -135,7 +143,6 @@ func move_input():
 		turn = true
 		jump_sound.play()
 
-var status = 0
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		$"../LoseLifeSound".play()
@@ -149,8 +156,9 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			pause_timer.start()
 	  
 	if area.is_in_group("log"):
-			status += 1
-			print(status)
+		status += 1
+	if area.is_in_group("otherlog"):
+		status2 += 1
 	  
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
@@ -177,8 +185,8 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 func _on_CollisionBox_area_exited(area):
 	if area.is_in_group("log"):
 		status -= 1
-		print(status)
-		if status == 0:
+		
+		if(status == 0 and status2 == 0):
 			GlobalData.lives -= 1
 			if GlobalData.lives < 1:
 				game_over()
@@ -187,6 +195,21 @@ func _on_CollisionBox_area_exited(area):
 				pause = true
 				pause_timer.start()
 				score_timer.paused = true
+				_ready()	
+	if area.is_in_group("otherlog"):
+		status2 -= 1
+		if(status == 0 and status2 == 0):
+			GlobalData.lives -= 1
+			if GlobalData.lives < 1:
+				game_over()
+			else:
+				sprite.set_texture(death_texture)
+				pause = true
+				pause_timer.start()
+				score_timer.paused = true
+				_ready()	
+
+
 
 func handle_lilypad():
 	$"../GoalSound".play()

@@ -182,7 +182,7 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 				
 	
 			
-		 
+
 
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
@@ -281,11 +281,9 @@ func _on_CollisionBox_area_exited(area):
 				pause = true
 				pause_timer.start()
 				score_timer.paused = true
-
 				_ready()	
 	if area.is_in_group("otherlog"):
 		status2 -= 1
-		
 		if(status == 0 and status2 == 0):
 			GlobalData.lives -= 1
 			if GlobalData.lives < 1:
@@ -295,7 +293,6 @@ func _on_CollisionBox_area_exited(area):
 				pause = true
 				pause_timer.start()
 				score_timer.paused = true
-
 				_ready()	
 
 		
