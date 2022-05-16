@@ -33,6 +33,7 @@ var death_texture = preload("res://Art/FrogDeath.png")
 var jump_sound
 var music
 var game_over_sound
+var music_playing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,7 +55,9 @@ func _ready():
 	pause = false
 	score_timer.start(30)
 	second_timer.start()
-	music.play()
+	if not music_playing:
+		music.play()
+		music_playing = true
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
@@ -73,7 +76,6 @@ func movement():
 	if turn == true:
 		if Input.is_action_pressed("move_left") == false && Input.is_action_pressed("move_right") == false && Input.is_action_pressed("move_up") == false && Input.is_action_pressed("move_down") == false:
 			turn = false
-	#print (l)
 	if l != 0:
 		global_position.x -= move_speed
 		l -= move_speed
@@ -91,7 +93,6 @@ func movement():
 #player movement
 func move_input(): 
 	#left movement
-	#print(turn)
 	if Input.is_action_pressed("move_left") && $L.is_colliding() == false && turn == false:
 		l = tile_size
 		turn = true

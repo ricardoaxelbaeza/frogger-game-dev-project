@@ -32,6 +32,7 @@ var death_texture = preload("../Art/FrogDeath.png")
 var jump_sound
 var music
 var game_over_sound
+var music_playing = false
 
 var active_collision_count = 0
 var velocity := Vector2.ZERO
@@ -60,8 +61,9 @@ func _ready():
 	pause = false
 	score_timer.start(30)
 	second_timer.start()
-	music.play()
-
+	if not music_playing:
+		music.play()
+		music_playing = true
 
 #vectors can hold two values (value in x and value in y direction)
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
