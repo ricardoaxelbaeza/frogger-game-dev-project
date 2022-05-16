@@ -66,19 +66,6 @@ func _process(delta): #gets called 60 times a second
 	if not pause:
 		movement()
 	
-	# reset frogs after all goals have been reached
-	if not frog_reset_timer.is_stopped():
-		if frog_reset_timer.get_time_left() <= 5:
-			GlobalData.frog1 = false
-		if frog_reset_timer.get_time_left() <= 4:
-			GlobalData.frog2 = false
-		if frog_reset_timer.get_time_left() <= 3:
-			GlobalData.frog3 = false
-		if frog_reset_timer.get_time_left() <= 2:
-			GlobalData.frog4 = false
-		if frog_reset_timer.get_time_left() <= 1:
-			GlobalData.frog5 = false
-	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
 		move_input()
@@ -125,55 +112,19 @@ func move_input():
 		d = tile_size
 		turn = true
 		jump_sound.play()
-	
-func _on_LogCollider_area_entered(area):
-	onLog = true
-
-func _on_LogCollider_area_exited(area):
-	onLog = false
-	if not onLog and position.y < 350:
-		GlobalData.lives -= 1
-		if GlobalData.lives < 0:
-			queue_free()
-			# maybe show game over? then afer player presses up/down/left right:
-			get_tree().change_scene("res://MainMenu.tscn")
-			
-		else:
-			get_tree().reload_current_scene()
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
-		$"../LoseLifeSound".play()
-		GlobalData.lives -= 1
-		sprite.set_texture(death_texture)
-		pause = true
-		score_timer.paused = true
+		if not pause:
+			$"../LoseLifeSound".play()
+			GlobalData.lives -= 1
+			sprite.set_texture(death_texture)
+			pause = true
+			score_timer.paused = true
 		if GlobalData.lives == 0:
 			game_over()
 		elif GlobalData.lives > 0:
 			pause_timer.start()
-			
-
-func handle_lilypad():
-	score_timer.paused = true
-	# +50 points for getting a frog to the lilypad
-	GlobalData.score += 50
-	# +10 points for each unused half second left on the timer
-	GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
-	if (GlobalData.frog1 and GlobalData.frog2 and GlobalData.frog3 and GlobalData.frog4 and GlobalData.frog5):
-		# +1000 points for getting all 5 frogs to end
-		GlobalData.score += 1000
-		# reset frogs for replay
-		reset_frogs()
-	else:
-		visible = false
-		pause_timer.start()
-		_ready()
-
-func reset_frogs():
-	score_timer.paused = true
-	visible = false
-	frog_reset_timer.start(5)
 
 func game_over():
 	music.stop()

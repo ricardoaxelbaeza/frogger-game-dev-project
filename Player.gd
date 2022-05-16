@@ -78,19 +78,6 @@ func _process(delta): #gets called 60 times a second
 	$"../Lilypads/Lilypad4/Success1".visible = GlobalData.frog4
 	$"../Lilypads/Lilypad5/Success1".visible = GlobalData.frog5
 	
-	# reset frogs after all goals have been reached
-	# if not frog_reset_timer.is_stopped():
-#		if frog_reset_timer.get_time_left() <= 5:
-#			GlobalData.frog1 = false
-#		if frog_reset_timer.get_time_left() <= 4:
-#			GlobalData.frog2 = false
-#		if frog_reset_timer.get_time_left() <= 3:
-#			GlobalData.frog3 = false
-#		if frog_reset_timer.get_time_left() <= 2:
-#			GlobalData.frog4 = false
-#		if frog_reset_timer.get_time_left() <= 1:
-#			GlobalData.frog5 = false
-	
 func movement():
 	if l == 0 && r ==0 && u == 0 && d == 0:
 		move_input()
@@ -98,7 +85,6 @@ func movement():
 	if turn == true:
 		if Input.is_action_pressed("move_left") == false && Input.is_action_pressed("move_right") == false && Input.is_action_pressed("move_up") == false && Input.is_action_pressed("move_down") == false:
 			turn = false
-	#print (l)
 	if l != 0:
 		global_position.x -= move_speed
 		l -= move_speed
@@ -121,7 +107,6 @@ func movement():
 #player movement
 func move_input(): 
 	#left movement
-	#print(turn)
 	if Input.is_action_pressed("move_left") && $L.is_colliding() == false && turn == false:
 		l = tile_size
 		turn = true
@@ -145,11 +130,12 @@ func move_input():
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
-		$"../LoseLifeSound".play()
-		GlobalData.lives -= 1
-		sprite.set_texture(death_texture)
-		pause = true
-		score_timer.paused = true
+		if not pause:
+			$"../LoseLifeSound".play()
+			GlobalData.lives -= 1
+			sprite.set_texture(death_texture)
+			pause = true
+			score_timer.paused = true
 		if GlobalData.lives == 0:
 			game_over()
 		elif GlobalData.lives > 0:
@@ -207,9 +193,7 @@ func _on_CollisionBox_area_exited(area):
 				pause = true
 				pause_timer.start()
 				score_timer.paused = true
-				_ready()	
-
-
+				_ready()
 
 func handle_lilypad():
 	$"../GoalSound".play()
