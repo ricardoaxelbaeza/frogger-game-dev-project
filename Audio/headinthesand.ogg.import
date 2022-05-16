@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/headinthesand.ogg-4baa88039e75f82b6bc65513b1079c05.oggstr"
+
+[deps]
+
+source_file="res://Audio/headinthesand.ogg"
+dest_files=[ "res://.import/headinthesand.ogg-4baa88039e75f82b6bc65513b1079c05.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
