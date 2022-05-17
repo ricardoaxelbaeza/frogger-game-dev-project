@@ -34,3 +34,4 @@ cast_to = Vector2( -16, 0 )
 cast_to = Vector2( 16, 0 )
 
 [connection signal="area_entered" from="CollisionBox" to="." method="_on_CollisionBox_area_entered"]
+[connection signal="area_exited" from="CollisionBox" to="." method="_on_CollisionBox_area_exited"]

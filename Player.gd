@@ -9,7 +9,7 @@ var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = false
-
+var direction = 1
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -39,6 +39,9 @@ var active_collision_count = 0
 var velocity := Vector2.ZERO
 
 
+var status = 0
+var status2 = 0
+var logvelocity = Vector2()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -66,6 +69,8 @@ func _ready():
 var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving per second
 
 onready var sprite : Sprite = get_node("Sprite") #references the sprite node
+
+
 
 	
 func _process(delta): #gets called 60 times a second
@@ -112,6 +117,19 @@ func movement():
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
 	
+	if status > 0 and status2 == 0:
+		global_position.x -= 1.5
+	if status == 0 and status2 > 0:
+		global_position.x += 1.5
+		
+	
+	
+	
+	
+	
+		
+	
+	
 		
 #player movement
 func move_input(): 
@@ -138,21 +156,8 @@ func move_input():
 		turn = true
 		jump_sound.play()
 	
-func _on_LogCollider_area_entered(area):
-	onLog = true
 
-func _on_LogCollider_area_exited(area):
-	onLog = false
-	if not onLog and position.y < 350:
-		GlobalData.lives -= 1
-		if GlobalData.lives < 0:
-			queue_free()
-			# maybe show game over? then afer player presses up/down/left right:
-			get_tree().change_scene("res://MainMenu.tscn")
-			
-		else:
-			get_tree().reload_current_scene()
-var status = 0
+
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		GlobalData.lives -= 1
@@ -165,9 +170,18 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			score_timer.paused = true
 
 			_ready()
-	 if area.is_in_group("log"):
-			status += 1
-			print(status)
+	
+	if area.is_in_group("log"):
+				status += 1
+	if area.is_in_group("otherlog"):
+				status2 += 1
+				
+	
+				
+	
+				
+	
+			
 		 
 
 	# Player reaches goal areas:
@@ -190,19 +204,8 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Lilypad5"):
 		GlobalData.frog5 = true
 		handle_lilypad()
-func _on_CollisionBox_area_exited(area):
-	if area.is_in_group("log"):
-		status -= 1
-		print(status)
-		if status == 0:
-			GlobalData.lives -= 1
-			if GlobalData.lives < 1:
-				game_over()
-			else:
-				sprite.set_texture(death_texture)
-				pause = true
-				pause_timer.start()
-				score_timer.paused = true
+
+
 func handle_lilypad():
 	score_timer.paused = true
 	# +50 points for getting a frog to the lilypad
@@ -254,3 +257,49 @@ func _on_PauseTimer_timeout():
 	position = start_position
 	visible = true
 	_ready()
+
+
+
+
+
+
+
+
+
+
+
+func _on_CollisionBox_area_exited(area):
+	if area.is_in_group("log"):
+		status -= 1
+		
+		if(status == 0 and status2 == 0):
+			GlobalData.lives -= 1
+			if GlobalData.lives < 1:
+				game_over()
+			else:
+				sprite.set_texture(death_texture)
+				pause = true
+				pause_timer.start()
+				score_timer.paused = true
+
+				_ready()	
+	if area.is_in_group("otherlog"):
+		status2 -= 1
+		
+		if(status == 0 and status2 == 0):
+			GlobalData.lives -= 1
+			if GlobalData.lives < 1:
+				game_over()
+			else:
+				sprite.set_texture(death_texture)
+				pause = true
+				pause_timer.start()
+				score_timer.paused = true
+
+				_ready()	
+
+		
+	
+	
+	
+		
