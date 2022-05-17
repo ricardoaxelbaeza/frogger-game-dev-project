@@ -114,11 +114,10 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 			
 	if area.is_in_group("Door"):
 		if(GlobalData.key_found == true):
-			print("key has been found")
+			pause = true
 			handle_score()
 			$"../WinSound".play()
-		else: 
-			print("please find key")
+		else:
 			$"../NoKeySound".play()
 
 func game_over():
