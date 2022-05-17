@@ -51,6 +51,7 @@ func _ready():
 	second_timer.start()
 	if not music_playing:
 		music.play()
+		GlobalData.score = GlobalData.total_score
 		music_playing = true
 
 #vectors can hold two values (value in x and value in y direction)
@@ -146,8 +147,7 @@ func lose_life():
 		pause_timer.start()
 
 func handle_score():
-	GlobalData.total_score += GlobalData.score
-	print(GlobalData.total_score)
+	GlobalData.total_score = GlobalData.score
 
 func _on_SecondTimer_timeout():
 	GlobalData.time = round(score_timer.get_time_left())

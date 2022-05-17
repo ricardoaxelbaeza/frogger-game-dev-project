@@ -505,4 +505,4 @@ scale = Vector2( 1, 1.125 )
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
-[connection signal="finished" from="WinSound" to="Player" method="_on_WinSound_finished"]
+[connection signal="finished" from="WinSound" to="Door" method="_on_WinSound_finished"]
