@@ -115,6 +115,10 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Door"):
 		if(GlobalData.key_found == true):
 			pause = true
+			# +1000 points for finishing the level
+			GlobalData.score += 1000
+			# +10 points for each unused half second left on the timer
+			GlobalData.score += floor(score_timer.get_time_left() / 0.5) * 10
 			handle_score()
 			$"../WinSound".play()
 		else:
@@ -142,20 +146,8 @@ func lose_life():
 		pause_timer.start()
 
 func handle_score():
-	print(get_tree().get_current_scene().get_name())
-	if get_tree().get_current_scene().get_name() == "Level1":
-		GlobalData.score_1 = GlobalData.score
-		print(GlobalData.score_1)
-	if get_tree().get_current_scene().get_name() == "Level2":
-		GlobalData.score_2 = GlobalData.score
-		print(GlobalData.score_2)
-	if get_tree().get_current_scene().get_name() == "Level3":
-		GlobalData.score_3 = GlobalData.score
-		print(GlobalData.score_3)
-	if get_tree().get_current_scene().get_name() == "Level4":
-		GlobalData.score_4 = GlobalData.score
-		print(GlobalData.score_4)
-	GlobalData.total_score = GlobalData.score_1 + GlobalData.score_2 + GlobalData.score_3 + GlobalData.score_4
+	GlobalData.total_score += GlobalData.score
+	print(GlobalData.total_score)
 
 func _on_SecondTimer_timeout():
 	GlobalData.time = round(score_timer.get_time_left())
