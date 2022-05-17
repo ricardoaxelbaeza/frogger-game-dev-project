@@ -1,10 +1,5 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
@@ -33,6 +28,7 @@ var jump_sound
 var music
 var game_over_sound
 var music_playing = false
+var game_over
 
 var active_collision_count = 0
 var velocity := Vector2.ZERO
@@ -54,6 +50,7 @@ func _ready():
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
 	game_over_sound = get_node("../GameOverSound")
+	game_over = false
   
 	if (score_timer.paused == true):
 		score_timer.paused = false
@@ -105,7 +102,7 @@ func movement():
 		global_position.x -= 1.5
 	if status == 0 and status2 > 0:
 		global_position.x += 1.5
-		
+
 #player movement
 func move_input(): 
 	#left movement
@@ -132,16 +129,7 @@ func move_input():
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
-		if not pause:
-			$"../LoseLifeSound".play()
-			GlobalData.lives -= 1
-			sprite.set_texture(death_texture)
-			pause = true
-			score_timer.paused = true
-		if GlobalData.lives == 0:
-			game_over()
-		elif GlobalData.lives > 0:
-			pause_timer.start()
+		lose_life()
 	  
 	if area.is_in_group("log"):
 		status += 1
@@ -168,7 +156,6 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Lilypad5"):
 		GlobalData.frog5 = true
 		handle_lilypad()
-		
 
 func _on_CollisionBox_area_exited(area):
 	if area.is_in_group("log"):
@@ -187,15 +174,7 @@ func _on_CollisionBox_area_exited(area):
 	if area.is_in_group("otherlog"):
 		status2 -= 1
 		if(status == 0 and status2 == 0):
-			GlobalData.lives -= 1
-			if GlobalData.lives < 1:
-				game_over()
-			else:
-				sprite.set_texture(death_texture)
-				pause = true
-				pause_timer.start()
-				score_timer.paused = true
-				_ready()
+			lose_life()
 
 func handle_lilypad():
 	$"../GoalSound".play()
@@ -213,6 +192,18 @@ func handle_lilypad():
 		visible = false
 		pause_timer.start()
 
+func lose_life():
+	if not pause:
+		$"../LoseLifeSound".play()
+		GlobalData.lives -= 1
+		sprite.set_texture(death_texture)
+		pause = true
+		score_timer.paused = true
+	if GlobalData.lives == 0:
+		game_over()
+	elif GlobalData.lives > 0:
+		pause_timer.start()
+
 func reset_frogs():
 	score_timer.paused = true
 	visible = false
@@ -221,7 +212,10 @@ func reset_frogs():
 
 func game_over():
 	music.stop()
-	game_over_sound.play()
+	GlobalData.total_score = GlobalData.score
+	if not game_over:
+		game_over_sound.play()
+		game_over = true
 	score_timer.stop()
 	GlobalData.key_found = false
 
@@ -229,7 +223,7 @@ func _on_SecondTimer_timeout():
 	GlobalData.time = round(score_timer.get_time_left())
 
 func _on_ScoreTimer_timeout():
-	game_over()
+	lose_life()
 
 func _pause():
 	if Input.is_action_pressed("ui_cancel"):

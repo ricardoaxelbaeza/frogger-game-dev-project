@@ -27,6 +27,7 @@ var jump_sound
 var music
 var game_over_sound
 var music_playing = false
+var game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +41,7 @@ func _ready():
 	jump_sound = get_node("../JumpSound")
 	music = get_node("../Music")
 	game_over_sound = get_node("../GameOverSound")
+	game_over = false
 	
 	if (score_timer.paused == true):
 		score_timer.paused = false
@@ -122,8 +124,9 @@ func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 func game_over():
 	music.stop()
 	handle_score()
-	if not pause:
+	if not game_over:
 		game_over_sound.play()
+		game_over = true
 	score_timer.stop()
 	GlobalData.key_found = false
 
@@ -175,4 +178,4 @@ func _on_PauseTimer_timeout():
 
 func _on_GameOverSound_finished():
 	queue_free()
-	get_tree().change_scene("res://Game Over.tscn")
+	get_tree().change_scene("res://Game Over Variant.tscn")
