@@ -8,7 +8,7 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	text = "SCORE: " + str(GlobalData.score)
+	text = "SCORE: " + str(GlobalData.total_score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

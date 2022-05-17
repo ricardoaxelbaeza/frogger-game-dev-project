@@ -1,12 +1,9 @@
 extends Node2D
 
 func _ready():
-	print(GlobalData.key_found)
+	pass
 
 func _on_Area2D_body_entered(body):
 	GlobalData.key_found = true
 	$"../KeySound".play()
-	print(GlobalData.key_found)
 	queue_free()
-	
-	
