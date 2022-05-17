@@ -1,15 +1,9 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = true
-
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -22,7 +16,6 @@ var d = 0
 
 var score_timer
 var second_timer
-var frog_reset_timer
 var pause_timer
 var start_position
 var pause = false
@@ -39,7 +32,6 @@ var music_playing = false
 func _ready():
 	score_timer = get_node("../ScoreTimer")
 	second_timer = get_node("../SecondTimer")
-	frog_reset_timer = get_node("../FrogResetTimer")
 	pause_timer = get_node("../PauseTimer")
 	start_position = $"../StartPosition".position
 	
@@ -116,28 +108,58 @@ func move_input():
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
-		if not pause:
-			$"../LoseLifeSound".play()
-			GlobalData.lives -= 1
-			sprite.set_texture(death_texture)
-			pause = true
-			score_timer.paused = true
-		if GlobalData.lives == 0:
-			game_over()
-		elif GlobalData.lives > 0:
-			pause_timer.start()
+		lose_life()
+			
+	if area.is_in_group("Door"):
+		if(GlobalData.key_found == true):
+			print("key has been found")
+			handle_score()
+			$"../WinSound".play()
+		else: 
+			print("please find key")
+			$"../NoKeySound".play()
 
 func game_over():
 	music.stop()
-	game_over_sound.play()
+	handle_score()
+	if not pause:
+		game_over_sound.play()
 	score_timer.stop()
 	GlobalData.key_found = false
+
+func lose_life():
+	if not pause:
+		$"../LoseLifeSound".play()
+		GlobalData.lives -= 1
+		sprite.set_texture(death_texture)
+		pause = true
+		score_timer.paused = true
+	if GlobalData.lives == 0:
+		game_over()
+	elif GlobalData.lives > 0:
+		pause_timer.start()
+
+func handle_score():
+	print(get_tree().get_current_scene().get_name())
+	if get_tree().get_current_scene().get_name() == "Level1":
+		GlobalData.score_1 = GlobalData.score
+		print(GlobalData.score_1)
+	if get_tree().get_current_scene().get_name() == "Level2":
+		GlobalData.score_2 = GlobalData.score
+		print(GlobalData.score_2)
+	if get_tree().get_current_scene().get_name() == "Level3":
+		GlobalData.score_3 = GlobalData.score
+		print(GlobalData.score_3)
+	if get_tree().get_current_scene().get_name() == "Level4":
+		GlobalData.score_4 = GlobalData.score
+		print(GlobalData.score_4)
+	GlobalData.total_score = GlobalData.score_1 + GlobalData.score_2 + GlobalData.score_3 + GlobalData.score_4
 
 func _on_SecondTimer_timeout():
 	GlobalData.time = round(score_timer.get_time_left())
 
 func _on_ScoreTimer_timeout():
-	game_over()
+	lose_life()
 
 func _pause():
 	if Input.is_action_pressed("ui_cancel"):
@@ -145,11 +167,6 @@ func _pause():
 		# exit to main menu if player chooses
 		pass
 	pass
-
-func _on_FrogResetTimer_timeout():
-	position = start_position
-	visible = true
-	_ready()
 
 func _on_PauseTimer_timeout():
 	position = start_position

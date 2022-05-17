@@ -16,6 +16,12 @@ var frog5 = false
 
 var key_found = false
 
+var score_1 = 0
+var score_2 = 0
+var score_3 = 0
+var score_4 = 0
+var total_score = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

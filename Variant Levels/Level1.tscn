@@ -28,7 +28,7 @@
 [ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=26]
 [ext_resource path="res://Audio/SFX_Pickup_06.wav" type="AudioStream" id=27]
 [ext_resource path="res://Audio/Jingle_Achievement_00.wav" type="AudioStream" id=28]
-[ext_resource path="res://Variant Levels/LeveL3.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Variant Levels/Level3.tscn" type="PackedScene" id=29]
 [ext_resource path="res://otherlog.tscn" type="PackedScene" id=30]
 
 [sub_resource type="TileSet" id=1]
