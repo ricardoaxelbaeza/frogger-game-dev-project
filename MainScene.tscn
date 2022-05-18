@@ -1,5 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
+
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
 [ext_resource path="res://Car/Car.tscn" type="PackedScene" id=3]
@@ -19,8 +20,12 @@
 [ext_resource path="res://Audio/SFX_Pickup_03.wav" type="AudioStream" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
-[ext_resource path="res://Audio/arcade-epic-beginning.ogg" type="AudioStream" id=20]
-[ext_resource path="res://otherlog.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Audio/headinthesand.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Audio/vgdeathsound.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/Collect_Point_01.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/Jingle_Achievement_00.wav" type="AudioStream" id=24]
+[ext_resource path="res://otherlog.tscn" type="PackedScene" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -107,6 +112,9 @@ extents = Vector2( 19.5, 12.75 )
 [node name="MainScene" type="Node2D"]
 position = Vector2( -5, -116 )
 scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 682, 1464 )
@@ -473,35 +481,50 @@ scale = Vector2( 1, 1.09375 )
 position = Vector2( 82, 77 )
 scale = Vector2( 1, 1.125 )
 
+[node name="Node" type="Node" parent="." groups=["otherlog"]]
+
+[node name="Sprite" parent="Node" groups=["otherlog"] instance=ExtResource( 25 )]
+position = Vector2( -58, 261 )
+scale = Vector2( 1, 1.1875 )
+
+[node name="Sprite2" parent="Node" groups=["otherlog"] instance=ExtResource( 25 )]
+position = Vector2( 188, 263 )
+scale = Vector2( 1, 1.1875 )
+
+[node name="Sprite3" parent="Node" groups=["otherlog"] instance=ExtResource( 25 )]
+position = Vector2( 444, 272 )
+scale = Vector2( 1, 1.09375 )
+
+[node name="Sprite4" parent="Node" groups=["otherlog"] instance=ExtResource( 25 )]
+position = Vector2( 205, 139 )
+scale = Vector2( 1, 1.34375 )
+
+[node name="Sprite5" parent="Node" groups=["otherlog"] instance=ExtResource( 25 )]
+position = Vector2( -49, 135 )
+scale = Vector2( 1, 1.40625 )
+
+
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 20 )
 
-[node name="Node" type="Node" parent="." groups=["otherlog"]]
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
 
-[node name="Sprite" parent="Node" groups=["otherlog"] instance=ExtResource( 22 )]
-position = Vector2( -58, 261 )
-scale = Vector2( 1, 1.1875 )
+[node name="LoseLifeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
 
-[node name="Sprite2" parent="Node" groups=["otherlog"] instance=ExtResource( 22 )]
-position = Vector2( 188, 263 )
-scale = Vector2( 1, 1.1875 )
+[node name="GoalSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
 
-[node name="Sprite3" parent="Node" groups=["otherlog"] instance=ExtResource( 22 )]
-position = Vector2( 444, 272 )
-scale = Vector2( 1, 1.09375 )
+[node name="5FrogsSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
 
-[node name="Sprite4" parent="Node" groups=["otherlog"] instance=ExtResource( 22 )]
-position = Vector2( 205, 139 )
-scale = Vector2( 1, 1.34375 )
-
-[node name="Sprite5" parent="Node" groups=["otherlog"] instance=ExtResource( 22 )]
-position = Vector2( -49, 135 )
-scale = Vector2( 1, 1.40625 )
 
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
 [connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
+[connection signal="finished" from="GameOverSound" to="Player" method="_on_GameOverSound_finished"]

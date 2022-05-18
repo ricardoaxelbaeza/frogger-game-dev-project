@@ -1,9 +1,5 @@
 extends Sprite
 
-
-
-
-
 var velocity = 25
 
 func _process(delta):

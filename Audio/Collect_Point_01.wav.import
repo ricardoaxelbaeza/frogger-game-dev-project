@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Collect_Point_01.wav-369edfeb602e95904853ed7fbc7d2019.sample"
+
+[deps]
+
+source_file="res://Audio/Collect_Point_01.wav"
+dest_files=[ "res://.import/Collect_Point_01.wav-369edfeb602e95904853ed7fbc7d2019.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

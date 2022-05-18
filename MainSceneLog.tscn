@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ColecoVision - Frogger - Everything.png" type="Texture" id=2]
@@ -12,25 +12,15 @@
 [ext_resource path="res://HUD/LivesLabel.gd" type="Script" id=10]
 [ext_resource path="res://Car/Truck.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Car/Truck.gd" type="Script" id=12]
-[ext_resource path="res://Art/Tilemaps/RockyShoreline.png" type="Texture" id=13]
+[ext_resource path="res://Art/Lilypad.png" type="Texture" id=13]
 [ext_resource path="res://HUD/ScoreLabel.gd" type="Script" id=14]
 [ext_resource path="res://HUD/TimerLabel.gd" type="Script" id=15]
-[ext_resource path="res://Key.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Art/FrogOnLilypad.png" type="Texture" id=16]
 [ext_resource path="res://Audio/SFX_Pickup_03.wav" type="AudioStream" id=17]
 [ext_resource path="res://log.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Art/Tilemaps/Green Buffer.png" type="Texture" id=19]
-[ext_resource path="res://Audio/Casual 8-bit 2.wav" type="AudioStream" id=20]
-[ext_resource path="res://Variant Levels/Walls/TrafficCone.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Variant Levels/Globals/PlayerVariant.gd" type="Script" id=22]
-[ext_resource path="res://Door.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Variant Levels/Walls/BranchWall.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Audio/vgdeathsound.wav" type="AudioStream" id=25]
-[ext_resource path="res://Audio/SFX_Pickup_33.wav" type="AudioStream" id=26]
-[ext_resource path="res://Audio/SFX_Pickup_06.wav" type="AudioStream" id=27]
-[ext_resource path="res://Audio/Jingle_Win_00.wav" type="AudioStream" id=28]
-[ext_resource path="res://Audio/Hit_02.wav" type="AudioStream" id=29]
-[ext_resource path="res://You Win.tscn" type="PackedScene" id=30]
-[ext_resource path="res://otherlog.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Audio/headinthesand.ogg" type="AudioStream" id=20]
+[ext_resource path="res://otherlog.tscn" type="PackedScene" id=22]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ColecoVision - Frogger - Everything.png 0"
@@ -110,27 +100,9 @@
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
-4/name = "RockyShoreline.png 4"
-4/texture = ExtResource( 13 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 0, 0, 288, 32 )
-4/tile_mode = 2
-4/autotile/icon_coordinate = Vector2( 0, 0 )
-4/autotile/tile_size = Vector2( 32, 32 )
-4/autotile/spacing = 0
-4/autotile/occluder_map = [  ]
-4/autotile/navpoly_map = [  ]
-4/autotile/priority_map = [  ]
-4/autotile/z_index_map = [  ]
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 19.5, 12.75 )
 
 [node name="MainScene" type="Node2D"]
 position = Vector2( -5, -116 )
@@ -139,17 +111,117 @@ scale = Vector2( 0.5, 0.5 )
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 682, 1464 )
 scale = Vector2( 3.5, 3.5 )
-z_index = -2
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -1572850, 2, 6, -1572849, 2, 6, -1572848, 2, 6, -1572847, 2, 6, -1507310, 2, 6, -1507309, 2, 6, -1507308, 2, 6, -655366, 4, 0, -655365, 4, 1, -655364, 4, 2, -655363, 4, 3, -655362, 4, 4, -655361, 4, 5, -720896, 4, 6, -720895, 4, 7, -720894, 4, 8, -589830, 2, 131072, -589829, 0, 131078, -589828, 0, 65540, -589827, 0, 65540, -589826, 0, 65540, -589825, 0, 65540, -655360, 0, 65540, -655359, 0, 65540, -655358, 2, 65544, -524294, 2, 131072, -524293, 0, 131078, -524292, 0, 65540, -524291, 0, 65540, -524290, 0, 65540, -524289, 0, 65540, -589824, 0, 65540, -589823, 0, 65540, -589822, 2, 65544, -458758, 2, 131072, -458757, 0, 65540, -458756, 0, 65540, -458755, 0, 65540, -458754, 0, 65540, -458753, 0, 65540, -524288, 0, 65540, -524287, 0, 65540, -524286, 2, 65544, -393222, 2, 131072, -393221, 0, 65540, -393220, 0, 131078, -393219, 0, 131078, -393218, 0, 131074, -393217, 0, 131074, -458752, 0, 131074, -458751, 0, 65540, -458750, 2, 65544, -327686, 3, 0, -327685, 3, 1, -327684, 3, 1, -327683, 3, 1, -327682, 3, 1, -327681, 3, 1, -393216, 3, 1, -393215, 3, 1, -393214, 3, 8, -262150, 2, 262144, -262149, 0, 262145, -262148, 0, 262145, -262147, 0, 262145, -262146, 0, 262145, -262145, 0, 262145, -327680, 0, 262145, -327679, 0, 262145, -327678, 2, 262152, -196614, 2, 262144, -196613, 0, 262145, -196612, 0, 262145, -196611, 0, 262145, -196610, 0, 262145, -196609, 0, 262145, -262144, 0, 262145, -262143, 0, 262145, -262142, 2, 262152, -131078, 2, 262144, -131077, 0, 262145, -131076, 0, 262145, -131075, 0, 262145, -131074, 0, 262145, -131073, 0, 262145, -196608, 0, 262145, -196607, 0, 262145, -196606, 2, 262152, -65542, 2, 262144, -65541, 0, 262145, -65540, 0, 262145, -65539, 0, 262145, -65538, 0, 262147, -65537, 0, 262147, -131072, 0, 262147, -131071, 0, 262147, -131070, 2, 262152, -6, 2, 262144, -5, 0, 262145, -4, 0, 262145, -3, 0, 262145, -2, 0, 262145, -1, 0, 262145, -65536, 0, 262145, -65535, 0, 262145, -65534, 2, 262152, 65530, 2, 327680, 65531, 2, 327682, 65532, 2, 327682, 65533, 2, 327682, 65534, 2, 327682, 65535, 2, 327682, 0, 2, 327682, 1, 2, 327682, 2, 2, 327688, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0 )
+tile_data = PoolIntArray( -1638389, 2, 6, -1638388, 2, 6, -1638387, 2, 6, -1572850, 2, 6, -1572849, 2, 6, -1572848, 2, 6, -1572847, 2, 6, -1507310, 2, 6, -1507309, 2, 6, -1507308, 2, 6, -655366, 2, 0, -655365, 2, 1, -655364, 2, 2, -655363, 2, 3, -655362, 2, 4, -655361, 2, 5, -720896, 2, 6, -720895, 2, 7, -720894, 2, 8, -589830, 2, 131072, -589829, 0, 131078, -589828, 0, 65540, -589827, 0, 65540, -589826, 0, 65540, -589825, 0, 65540, -655360, 0, 65540, -655359, 0, 65540, -655358, 2, 65544, -524294, 2, 131072, -524293, 0, 131078, -524292, 0, 65540, -524291, 0, 65540, -524290, 0, 65540, -524289, 0, 65540, -589824, 0, 65540, -589823, 0, 65540, -589822, 2, 65544, -458758, 2, 131072, -458757, 0, 65540, -458756, 0, 65540, -458755, 0, 65540, -458754, 0, 65540, -458753, 0, 65540, -524288, 0, 65540, -524287, 0, 65540, -524286, 2, 65544, -393222, 2, 131072, -393221, 0, 65540, -393220, 0, 131078, -393219, 0, 131078, -393218, 0, 131074, -393217, 0, 131074, -458752, 0, 131074, -458751, 0, 65540, -458750, 2, 65544, -327686, 3, 0, -327685, 3, 1, -327684, 3, 1, -327683, 3, 1, -327682, 3, 1, -327681, 3, 1, -393216, 3, 1, -393215, 3, 1, -393214, 3, 8, -262150, 2, 262144, -262149, 0, 262145, -262148, 0, 262145, -262147, 0, 262145, -262146, 0, 262145, -262145, 0, 262145, -327680, 0, 262145, -327679, 0, 262145, -327678, 2, 262152, -196614, 2, 262144, -196613, 0, 262145, -196612, 0, 262145, -196611, 0, 262145, -196610, 0, 262145, -196609, 0, 262145, -262144, 0, 262145, -262143, 0, 262145, -262142, 2, 262152, -131078, 2, 262144, -131077, 0, 262145, -131076, 0, 262145, -131075, 0, 262145, -131074, 0, 262145, -131073, 0, 262145, -196608, 0, 262145, -196607, 0, 262145, -196606, 2, 262152, -65542, 2, 262144, -65541, 0, 262145, -65540, 0, 262145, -65539, 0, 262145, -65538, 0, 262147, -65537, 0, 262147, -131072, 0, 262147, -131071, 0, 262147, -131070, 2, 262152, -6, 2, 262144, -5, 0, 262145, -4, 0, 262145, -3, 0, 262145, -2, 0, 262145, -1, 0, 262145, -65536, 0, 262145, -65535, 0, 262145, -65534, 2, 262152, 65530, 2, 327680, 65531, 2, 327682, 65532, 2, 327682, 65533, 2, 327682, 65534, 2, 327682, 65535, 2, 327682, 0, 2, 327682, 1, 2, 327682, 2, 2, 327688, 131066, 1, 0, 131067, 1, 0, 131068, 1, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 462, 1504 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
-script = ExtResource( 22 )
+
+[node name="Lilypads" type="Node" parent="."]
+
+[node name="Lilypad1" type="Area2D" parent="Lilypads" groups=["Lilypad1"]]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad1"]
+position = Vector2( 74.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad1"]
+position = Vector2( 74.5, 30.25 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad1"]
+position = Vector2( 74.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad2" type="Area2D" parent="Lilypads" groups=["Lilypad2"]]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad2"]
+position = Vector2( 158.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad2"]
+position = Vector2( 158.5, 30 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad2"]
+position = Vector2( 158.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad3" type="Area2D" parent="Lilypads" groups=["Lilypad3"]]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad3"]
+position = Vector2( 242.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad3"]
+position = Vector2( 242.5, 30 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad3"]
+position = Vector2( 242.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad4" type="Area2D" parent="Lilypads" groups=["Lilypad4"]]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad4"]
+position = Vector2( 326.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad4"]
+position = Vector2( 326.5, 30 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad4"]
+position = Vector2( 326.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
+
+[node name="Lilypad5" type="Area2D" parent="Lilypads" groups=["Lilypad5"]]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lilypad" type="Sprite" parent="Lilypads/Lilypad5"]
+position = Vector2( 410.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 13 )
+
+[node name="CollisionArea" type="CollisionShape2D" parent="Lilypads/Lilypad5"]
+position = Vector2( 410.5, 30 )
+shape = SubResource( 3 )
+
+[node name="Success1" type="Sprite" parent="Lilypads/Lilypad5"]
+position = Vector2( 410.5, 30 )
+scale = Vector2( 0.0420561, 0.0422078 )
+texture = ExtResource( 16 )
 
 [node name="Borders" type="Node" parent="."]
 
@@ -215,94 +287,35 @@ position = Vector2( -10, -1488.85 )
 scale = Vector2( 1.01474, 1.04027 )
 polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="Walls" type="Node" parent="."]
+[node name="Bump1" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 34.5672, -3561.51 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="Branch1" parent="Walls" instance=ExtResource( 24 )]
-position = Vector2( -5, 273 )
-scale = Vector2( 2, 6.5 )
+[node name="Bump2" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 202, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="Branch2" parent="Walls" instance=ExtResource( 24 )]
-position = Vector2( 472, 170 )
-rotation = 4.71239
+[node name="Bump3" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 370, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="ConeRow1" type="Node" parent="Walls"]
+[node name="Bump4" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 538, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="TrafficCone1" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 356 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
+[node name="Bump5" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 708, -3562 )
+scale = Vector2( 0.0949547, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
-[node name="TrafficCone2" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 382 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone3" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 408 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone4" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 434 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone5" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 460 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone6" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 486 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone7" parent="Walls/ConeRow1" instance=ExtResource( 21 )]
-position = Vector2( 324, 512 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="ConeRow2" type="Node" parent="Walls"]
-
-[node name="TrafficCone1" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 671 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone2" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 647 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone3" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 621 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone4" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 595 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone5" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 567 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone6" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 541 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone7" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 515 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
-
-[node name="TrafficCone8" parent="Walls/ConeRow2" instance=ExtResource( 21 )]
-position = Vector2( 163, 489 )
-scale = Vector2( 1.5, 1.75 )
-z_index = -1
+[node name="Bump6" type="CollisionPolygon2D" parent="Borders/BorderTop"]
+position = Vector2( 873.425, -3562 )
+scale = Vector2( 0.0657751, 2.39584 )
+polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 
 [node name="Row1" type="Node" parent="."]
 
@@ -427,62 +440,20 @@ one_shot = true
 
 [node name="SecondTimer" type="Timer" parent="."]
 
+[node name="FrogResetTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PauseTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FrogResetTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="PauseTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 462, 1504 )
-
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 17 )
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 20 )
-
-[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 25 )
-
-[node name="LoseLifeSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 26 )
-
-[node name="KeySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 27 )
-
-[node name="WinSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 28 )
-
-[node name="NoKeySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 29 )
-
-[node name="Key" parent="." instance=ExtResource( 16 )]
-position = Vector2( 858, 1104 )
-
-[node name="Door" parent="." instance=ExtResource( 23 )]
-position = Vector2( 74, 284 )
-scale = Vector2( 0.9, 0.8 )
-next_level = ExtResource( 30 )
-
-[node name="Logs2" type="Node" parent="." groups=["otherlog"]]
-
-[node name="Sprite" parent="Logs2" groups=["otherlog"] instance=ExtResource( 31 )]
-position = Vector2( -58, 261 )
-scale = Vector2( 1, 1.1875 )
-
-[node name="Sprite2" parent="Logs2" groups=["otherlog"] instance=ExtResource( 31 )]
-position = Vector2( 188, 263 )
-scale = Vector2( 1, 1.1875 )
-
-[node name="Sprite3" parent="Logs2" groups=["otherlog"] instance=ExtResource( 31 )]
-position = Vector2( 444, 272 )
-scale = Vector2( 1, 1.09375 )
-
-[node name="Sprite4" parent="Logs2" groups=["otherlog"] instance=ExtResource( 31 )]
-position = Vector2( 205, 139 )
-scale = Vector2( 1, 1.34375 )
-
-[node name="Sprite5" parent="Logs2" groups=["otherlog"] instance=ExtResource( 31 )]
-position = Vector2( -49, 135 )
-scale = Vector2( 1, 1.40625 )
 
 [node name="log" type="Node" parent="." groups=["log"]]
 
@@ -502,7 +473,35 @@ scale = Vector2( 1, 1.09375 )
 position = Vector2( 82, 77 )
 scale = Vector2( 1, 1.125 )
 
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+
+[node name="Logs2" type="Node" parent="." groups=["otherlog"]]
+
+[node name="Sprite" parent="Logs2" groups=["otherlog"] instance=ExtResource( 22 )]
+position = Vector2( -58, 261 )
+scale = Vector2( 1, 1.1875 )
+
+[node name="Sprite2" parent="Logs2" groups=["otherlog"] instance=ExtResource( 22 )]
+position = Vector2( 188, 263 )
+scale = Vector2( 1, 1.1875 )
+
+[node name="Sprite3" parent="Logs2" groups=["otherlog"] instance=ExtResource( 22 )]
+position = Vector2( 444, 272 )
+scale = Vector2( 1, 1.09375 )
+
+[node name="Sprite4" parent="Logs2" groups=["otherlog"] instance=ExtResource( 22 )]
+position = Vector2( 205, 139 )
+scale = Vector2( 1, 1.34375 )
+
+[node name="Sprite5" parent="Logs2" groups=["otherlog"] instance=ExtResource( 22 )]
+position = Vector2( -49, 135 )
+scale = Vector2( 1, 1.40625 )
+
 [connection signal="timeout" from="ScoreTimer" to="Player" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SecondTimer" to="Player" method="_on_SecondTimer_timeout"]
+[connection signal="timeout" from="FrogResetTimer" to="Player" method="_on_FrogResetTimer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="Player" method="_on_PauseTimer_timeout"]
-[connection signal="finished" from="WinSound" to="Door" method="_on_WinSound_finished"]
