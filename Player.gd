@@ -4,6 +4,7 @@ var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = false
+var increase_size = 0.045
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -85,16 +86,36 @@ func movement():
 		if Input.is_action_pressed("move_left") == false && Input.is_action_pressed("move_right") == false && Input.is_action_pressed("move_up") == false && Input.is_action_pressed("move_down") == false:
 			turn = false
 	if l != 0:
+		$Sprite.rotation_degrees = 270
 		global_position.x -= move_speed
+		if l > 8: #juciness animation for jumping
+			$Sprite.scale += Vector2(increase_size,increase_size)
+		if l < 25: 
+			$Sprite.scale -= Vector2(increase_size,increase_size)
 		l -= move_speed
 	if r != 0:
+		$Sprite.rotation_degrees = 90
 		global_position.x += move_speed
+		if r > 8:
+			$Sprite.scale += Vector2(increase_size,increase_size)
+		if r < 25: 
+			$Sprite.scale -= Vector2(increase_size,increase_size)
 		r -= move_speed
 	if u != 0:
+		$Sprite.rotation_degrees = 0
 		global_position.y -= move_speed
+		if u > 8:
+			$Sprite.scale += Vector2(increase_size,increase_size)
+		if u < 25: 
+			$Sprite.scale -= Vector2(increase_size,increase_size)
 		u -= move_speed
 	if d != 0:
+		$Sprite.rotation_degrees = 180
 		global_position.y += move_speed
+		if d > 8:
+			$Sprite.scale += Vector2(increase_size,increase_size)
+		if d < 25: 
+			$Sprite.scale -= Vector2(increase_size,increase_size)
 		d -= move_speed
 	vel = move_and_slide(vel.normalized() * speed) 
 	
@@ -130,7 +151,6 @@ func move_input():
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
 		lose_life()
-	  
 	if area.is_in_group("log"):
 		status += 1
 	if area.is_in_group("otherlog"):
