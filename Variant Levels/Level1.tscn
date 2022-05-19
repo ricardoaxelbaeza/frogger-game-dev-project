@@ -217,10 +217,12 @@ polygon = PoolVector2Array( 48, 1548, 930, 1548, 930, 1572, 48, 1572 )
 [node name="Walls" type="Node" parent="."]
 
 [node name="Branch1" parent="Walls" instance=ExtResource( 24 )]
+z_index = 1
 
 [node name="Branch2" parent="Walls" instance=ExtResource( 24 )]
 position = Vector2( 335, 5 )
 rotation = -3.14159
+z_index = 1
 
 [node name="ConeRow1" type="Node" parent="Walls"]
 

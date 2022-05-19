@@ -309,13 +309,16 @@ script = ExtResource( 12 )
 
 [node name="Branch1" parent="Walls" instance=ExtResource( 24 )]
 position = Vector2( 11, 94 )
+z_index = 1
 
 [node name="Branch3" parent="Walls" instance=ExtResource( 24 )]
 position = Vector2( 136, 98 )
+z_index = 1
 
 [node name="Branch2" parent="Walls" instance=ExtResource( 24 )]
 position = Vector2( 371, 33 )
 rotation = -3.14159
+z_index = 1
 
 [node name="ConeRow1" type="Node" parent="Walls"]
 
