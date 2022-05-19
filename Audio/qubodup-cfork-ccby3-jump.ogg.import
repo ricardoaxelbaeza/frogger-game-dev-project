@@ -11,5 +11,5 @@ dest_files=[ "res://.import/qubodup-cfork-ccby3-jump.ogg-f89e431aea4760cc2202d4e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
