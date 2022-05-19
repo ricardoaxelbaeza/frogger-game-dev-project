@@ -4,8 +4,6 @@ var speed : int = 200
 var jump_force : int = 600
 var gravity : int = 800
 var onLog : bool = false
-var direction = 1
-
 
 var tile_size = 32 # change by multiples of 4
 var turn = false
@@ -69,8 +67,6 @@ var vel: Vector2 = Vector2()  #means how many pixels we're going to be moving pe
 
 onready var sprite : Sprite = get_node("Sprite") #references the sprite node
 
-
-
 	
 func _process(delta): #gets called 60 times a second
 	if not pause:
@@ -107,7 +103,6 @@ func movement():
 	if status == 0 and status2 > 0:
 		global_position.x += 1.5
 
-
 #player movement
 func move_input(): 
 	#left movement
@@ -134,22 +129,13 @@ func move_input():
 
 func _on_CollisionBox_area_entered(area): #whenever player is goint to collide
 	if area.is_in_group("Row1Cars") or area.is_in_group("Row2Cars") or area.is_in_group("Row3Cars") or area.is_in_group("Row4Cars") or area.is_in_group("Row5Cars"):
-		GlobalData.lives -= 1
-		if GlobalData.lives < 1:
-			game_over()
-		else:
-			sprite.set_texture(death_texture)
-			pause = true
-			pause_timer.start()
-			score_timer.paused = true
-
-			_ready()
-	
+		lose_life()
+	  
 	if area.is_in_group("log"):
-				status += 1
+		status += 1
 	if area.is_in_group("otherlog"):
-				status2 += 1
-
+		status2 += 1
+	  
 	# Player reaches goal areas:
 	if area.is_in_group("Lilypad1"):
 		GlobalData.frog1 = true
@@ -184,24 +170,11 @@ func _on_CollisionBox_area_exited(area):
 				pause = true
 				pause_timer.start()
 				score_timer.paused = true
-
 				_ready()	
 	if area.is_in_group("otherlog"):
 		status2 -= 1
-		
 		if(status == 0 and status2 == 0):
-			GlobalData.lives -= 1
-			if GlobalData.lives < 1:
-				game_over()
-			else:
-				sprite.set_texture(death_texture)
-				pause = true
-				pause_timer.start()
-				score_timer.paused = true
-
-				_ready()	
-
-
+			lose_life()
 
 func handle_lilypad():
 	$"../GoalSound".play()

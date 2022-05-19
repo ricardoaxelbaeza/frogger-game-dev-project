@@ -1,6 +1,11 @@
 extends Sprite
 
-var velocity = 25
+
+
+
+
+var velocity = 30
+
 
 func _process(delta):
 	position.x += velocity * delta
