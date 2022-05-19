@@ -1,10 +1,6 @@
 extends Sprite
 
-
-
-
-
-var velocity = 30
+var velocity = 25
 
 
 func _process(delta):
