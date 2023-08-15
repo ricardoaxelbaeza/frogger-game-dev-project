@@ -4,4 +4,7 @@ This project entails the recreation of a classic 90's game called Frogger. The m
 
 # [PLAY FROGGIEST HERE!](https://xshirushi.itch.io/froggiest)
 
+# FROGGIEST TRAILER VIDEO
+[![Video](https://i.ytimg.com/vi/Gp1ucaqHYrE/hqdefault.jpg)](https://www.youtube.com/watch?v=Gp1ucaqHYrE)
+
 
